@@ -211,8 +211,6 @@ applyLang();
   const display = document.getElementById('digit-display');
   if (!display) return;
 
-  // まず即座にアニメーションテスト（API結果が来たら上書き）
-  animateSlotCounter(42);
 
   const KIRIBAN = [10, 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000];
   const KIRIBAN_MSGS = {
