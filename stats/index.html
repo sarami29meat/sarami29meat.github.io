@@ -378,6 +378,23 @@
 
 <div class="wrap">
 
+  <!-- Portfolio Visitors -->
+  <div class="section">
+    <p class="section-label">ポートフォリオサイト訪問者数</p>
+    <div class="cards-2">
+      <div class="card">
+        <div class="card-label"><span class="card-dot" style="background:#00FF88"></span>累計訪問者</div>
+        <div class="card-value" id="site-visitors"><div class="skel"></div></div>
+        <div class="card-sub">sarami29meat.github.io</div>
+      </div>
+      <div class="card">
+        <div class="card-label"><span class="card-dot" style="background:#60a5fa"></span>次のキリ番</div>
+        <div class="card-value" id="site-next-kiriban"><div class="skel"></div></div>
+        <div class="card-sub">あと <span id="site-kiriban-left">—</span> 人</div>
+      </div>
+    </div>
+  </div>
+
   <!-- GitHub -->
   <div class="section">
     <p class="section-label">GitHub — Twitter AI Filter</p>
@@ -535,6 +552,25 @@ function setVal(id, val) {
   if (el) el.textContent = fmt(val);
 }
 
+// ===== Portfolio visitor count =====
+const KIRIBAN_LIST = [10, 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000];
+
+async function loadSiteVisitors() {
+  try {
+    const res = await fetch('https://api.counterapi.dev/v1/sarami29meat/visits/');
+    if (!res.ok) throw new Error(res.status);
+    const d = await res.json();
+    const count = d.count ?? d.value ?? 0;
+    setVal('site-visitors', count);
+    const next = KIRIBAN_LIST.find(n => n > count) ?? '—';
+    document.getElementById('site-next-kiriban').textContent = next === '—' ? '—' : next.toLocaleString('ja-JP');
+    document.getElementById('site-kiriban-left').textContent = next === '—' ? '—' : (next - count).toLocaleString('ja-JP');
+  } catch(e) {
+    document.getElementById('site-visitors').innerHTML = '<span class="err-text">取得失敗</span>';
+    document.getElementById('site-next-kiriban').innerHTML = '—';
+  }
+}
+
 // ===== GitHub public stats =====
 async function loadGitHub() {
   try {
@@ -610,7 +646,7 @@ function checkGA() {
 async function loadAll() {
   const btn = document.getElementById('refresh-btn');
   btn.classList.add('spinning');
-  await loadGitHub();
+  await Promise.all([loadSiteVisitors(), loadGitHub()]);
   const token = localStorage.getItem(TOKEN_KEY);
   if (token) loadTraffic(token);
   loadBMC();
