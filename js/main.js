@@ -289,6 +289,13 @@ applyLang();
       document.getElementById('kiriban-emoji').textContent = emoji;
       document.getElementById('kiriban-num').textContent = `${count.toLocaleString()} 人目！！`;
       document.getElementById('kiriban-msg').innerHTML = msg;
+
+      // お祝いページへのリンクを生成
+      const link = document.getElementById('kiriban-link');
+      const oiwaiUrl = `oiwai.html?n=${count}&m=${encodeURIComponent(msg)}`;
+      link.href = oiwaiUrl;
+      link.style.display = 'inline-block';
+
       overlay.style.display = 'flex';
       document.getElementById('kiriban-close').onclick = () => overlay.style.display = 'none';
     }

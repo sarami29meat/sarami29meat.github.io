@@ -897,6 +897,23 @@ footer {
 
 #kiriban-close:hover { transform: translate(2px, 2px); box-shadow: 1px 1px 0 #000; }
 
+#kiriban-link {
+  display: inline-block;
+  background: #FFD700;
+  color: #000;
+  font-weight: 900;
+  font-size: 14px;
+  padding: 8px 20px;
+  border: 3px solid #FF0080;
+  text-decoration: none;
+  box-shadow: 3px 3px 0 #000;
+  margin-bottom: 10px;
+  letter-spacing: 0.1em;
+  animation: blink-label 0.8s step-end infinite;
+}
+
+#kiriban-link:hover { opacity: 0.85; }
+
 /* ===== Mobile ===== */
 @media (max-width: 600px) {
   .hero { padding: 56px 0 52px; }

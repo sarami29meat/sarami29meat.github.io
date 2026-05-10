@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>★キリ番おめでとうございます★</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      background-color: #000033;
+      color: #fff;
+      font-family: 'MS PGothic', 'ＭＳ Ｐゴシック', 'Hiragino Kaku Gothic ProN', sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    marquee { display: block; }
+
+    .hoshi-top {
+      color: #FFD700;
+      font-size: 20px;
+      letter-spacing: 6px;
+      margin: 8px 0;
+    }
+
+    .title-box {
+      border: 4px solid #FF0080;
+      background: #FFFDE7;
+      color: #CC0000;
+      padding: 16px;
+      margin: 16px auto;
+      max-width: 500px;
+      box-shadow: 6px 6px 0 #FF0080;
+    }
+
+    .title-box h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+      color: #FF0080;
+      text-shadow: 2px 2px 0 #FFD700;
+    }
+
+    .title-box p {
+      font-size: 13px;
+      color: #333;
+      margin: 0;
+    }
+
+    .num-display {
+      font-family: 'Courier New', monospace;
+      font-size: 64px;
+      font-weight: 900;
+      color: #00FF88;
+      text-shadow: 0 0 12px #00FF88, 0 0 30px #00CC66;
+      background: #000820;
+      border: 3px solid #00CCFF;
+      display: inline-block;
+      padding: 8px 24px;
+      margin: 20px 0;
+      letter-spacing: 8px;
+    }
+
+    .msg-box {
+      border: 3px dashed #FF69B4;
+      background: #fff;
+      color: #333;
+      padding: 16px 20px;
+      margin: 16px auto;
+      max-width: 480px;
+      font-size: 14px;
+      line-height: 2.2;
+      text-align: left;
+    }
+
+    .msg-box .big {
+      font-size: 18px;
+      font-weight: bold;
+      color: #FF0080;
+      display: block;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .stripe {
+      background: repeating-linear-gradient(90deg,
+        #FF0080 0px, #FF0080 16px,
+        #FFD700 16px, #FFD700 32px,
+        #00CCFF 32px, #00CCFF 48px);
+      height: 14px;
+      margin: 16px 0;
+    }
+
+    .coffee-box {
+      border: 3px solid #FFD700;
+      background: #1a1a1a;
+      color: #FFD700;
+      padding: 12px 20px;
+      margin: 16px auto;
+      max-width: 400px;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .coffee-box a {
+      color: #00FFFF;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      display: inline-block;
+      background: #FF0080;
+      color: #fff;
+      font-weight: bold;
+      font-size: 14px;
+      padding: 10px 28px;
+      border: 3px solid #FFD700;
+      text-decoration: none;
+      box-shadow: 4px 4px 0 #000;
+      margin: 20px 8px;
+      letter-spacing: 0.1em;
+    }
+
+    .back-btn:hover { opacity: 0.85; }
+
+    .blink {
+      animation: blink 0.8s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { visibility: visible; }
+      50%       { visibility: hidden; }
+    }
+
+    .stars-row {
+      color: #FFD700;
+      font-size: 18px;
+      letter-spacing: 4px;
+      margin: 10px 0;
+    }
+
+    #confetti-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .content { position: relative; z-index: 1; }
+  </style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="content">
+  <marquee class="hoshi-top" scrollamount="5">★☆★☆★☆★ キリ番おめでとうございます！！ ★☆★☆★☆★</marquee>
+
+  <div class="title-box">
+    <h1>★ おめでとうございます！！ ★</h1>
+    <p>あなたはキリ番をゲットしました☆彡</p>
+  </div>
+
+  <div class="stripe"></div>
+
+  <div class="num-display" id="oiwai-num">—</div>
+
+  <div class="stars-row">
+    <span class="blink">★☆★</span>
+    キリ番ＧＥＴ！！
+    <span class="blink">★☆★</span>
+  </div>
+
+  <div class="msg-box" id="oiwai-msg">
+    <span class="big">＼(^o^)／ おめでとうございます！！</span>
+    キリ番をゲットされた記念すべきお客様です☆<br>
+    本当にありがとうございます(T▽T)
+  </div>
+
+  <div class="stripe"></div>
+
+  <div class="coffee-box">
+    ★ もしよかったら作者にコーヒーを奢ってください★<br>
+    → <a href="https://www.buymeacoffee.com/sarami2929" target="_blank">☕ Buy me a coffee</a><br>
+    <span style="font-size:11px;color:#aaa;">開発の励みになります(≧▽≦)</span>
+  </div>
+
+  <marquee class="hoshi-top" scrollamount="3" direction="right">☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★</marquee>
+
+  <div>
+    <a href="index.html" class="back-btn">【 トップページに戻る 】</a>
+  </div>
+
+  <p style="font-size:11px;color:#888;margin-top:24px;">
+    © 2026 sarami &nbsp;|&nbsp; <a href="index.html" style="color:#888;">sarami29meat.github.io</a>
+  </p>
+</div>
+
+<script>
+// URLパラメータからキリ番情報を取得
+(function() {
+  const params = new URLSearchParams(location.search);
+  const num = params.get('n');
+  const msg = params.get('m');
+
+  if (num) {
+    document.getElementById('oiwai-num').textContent = Number(num).toLocaleString('ja-JP') + ' 人目！！';
+  }
+  if (msg) {
+    const el = document.getElementById('oiwai-msg');
+    el.innerHTML = `<span class="big">＼(^o^)／ おめでとうございます！！</span>${decodeURIComponent(msg)}`;
+  }
+})();
+
+// 紙吹雪
+(function() {
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#FF0080','#FFD700','#00CCFF','#00FF88','#FF69B4','#fff'];
+  const pieces = Array.from({length: 80}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height - canvas.height,
+    w: 6 + Math.random() * 8,
+    h: 4 + Math.random() * 4,
+    color: colors[Math.floor(Math.random() * colors.length)],
+    speed: 1.5 + Math.random() * 2.5,
+    angle: Math.random() * Math.PI * 2,
+    spin: (Math.random() - 0.5) * 0.15,
+  }));
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.angle);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+      p.y += p.speed;
+      p.angle += p.spin;
+      if (p.y > canvas.height) { p.y = -10; p.x = Math.random() * canvas.width; }
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
