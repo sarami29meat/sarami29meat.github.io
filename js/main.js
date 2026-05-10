@@ -45,7 +45,7 @@ const i18n = {
     'blog-title':        'Recent Posts',
     'more-link':         'See all →',
     'cta-title':         'Bugs, Requests & Feedback',
-    'cta-sub':           "Got something on your mind? Feel free to reach out. A coffee is always appreciated too.",
+    'cta-sub':           "Got something on your mind? Feel free to reach out. And if something I built actually helped you — buying me a coffee would honestly make my day.",
     'cta-btn-contact':   'Contact',
     'cta-btn-coffee':    '☕ Buy me a coffee',
     'tool-live':         'Live',
