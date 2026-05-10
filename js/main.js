@@ -14,7 +14,7 @@ const i18n = {
     'blog-title':        '最近の記事',
     'more-link':         'もっと見る →',
     'cta-title':         'バグ・要望・感想',
-    'cta-sub':           '気になることがあれば気軽に送ってください。役に立ったならコーヒーも嬉しいです。',
+    'cta-sub':           '気になることがあれば気軽に送ってください。使えると思ったら、コーヒー一杯おごってもらえると嬉しいです。',
     'cta-btn-contact':   'お問い合わせ',
     'cta-btn-coffee':    '☕ Buy me a coffee',
     'tool-live':         '公開中',
