@@ -238,8 +238,20 @@ applyLang();
   };
 
   try {
-    const res = await fetch('https://api.countapi.xyz/hit/sarami29meat.github.io/visits');
+    const isAdmin = localStorage.getItem('sarami_admin') === '1';
+    const lastVisit = parseInt(localStorage.getItem('sarami_last_visit') || '0', 10);
+    const now = Date.now();
+    const cooldown = 24 * 60 * 60 * 1000; // 24時間
+
+    // 管理人 or 24時間以内の再訪問はカウントしない（GETのみ）
+    const shouldCount = !isAdmin && (now - lastVisit > cooldown);
+    const endpoint = shouldCount
+      ? 'https://api.countapi.xyz/hit/sarami29meat.github.io/visits'
+      : 'https://api.countapi.xyz/get/sarami29meat.github.io/visits';
+
+    const res = await fetch(endpoint);
     if (!res.ok) throw new Error();
+    if (shouldCount) localStorage.setItem('sarami_last_visit', String(now));
     const data = await res.json();
     const count = data.value;
     el.textContent = count.toLocaleString('ja-JP');
