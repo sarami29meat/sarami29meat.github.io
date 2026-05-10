@@ -302,7 +302,7 @@ function animateSlotCounter(count) {
   if (!display) return;
   display.innerHTML = '';
 
-  const H = 80; // digit-boxの高さ(px)
+  const H = 72; // digit-boxの高さ(px) ← CSSのheightと必ず合わせる
   // 必ず3桁ゼロ埋め
   const padded = String(count).padStart(3, '0').split('');
 
