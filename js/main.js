@@ -266,7 +266,6 @@ applyLang();
     const count = data.value;
     animateSlotCounter(count);
 
-    // キリ番チェック
     const idx = KIRIBAN.indexOf(count);
     if (idx !== -1) {
       const lang = localStorage.getItem('sarami_lang') || 'ja';
@@ -283,8 +282,7 @@ applyLang();
       document.getElementById('kiriban-close').onclick = () => overlay.style.display = 'none';
     }
   } catch {
-    const display = document.getElementById('digit-display');
-    if (display) display.innerHTML = '<span style="color:var(--muted);font-size:13px">…</span>';
+    // APIエラー時は"---"のまま
   }
 })();
 
@@ -293,31 +291,27 @@ function animateSlotCounter(count) {
   if (!display) return;
   display.innerHTML = '';
 
-  const digits = String(count).split('');
-  const H = 44; // digit-box height px
+  const H = 76; // digit-boxの高さ(px)
+  // 必ず3桁ゼロ埋め
+  const padded = String(count).padStart(3, '0').split('');
 
-  digits.forEach((digit, i) => {
-    // カンマ区切り
-    if (i > 0 && (digits.length - i) % 3 === 0) {
-      const sep = document.createElement('span');
-      sep.className = 'digit-sep';
-      sep.textContent = ',';
-      display.appendChild(sep);
-    }
-
+  padded.forEach((digit, i) => {
     const box = document.createElement('div');
     box.className = 'digit-box';
+
     const reel = document.createElement('div');
     reel.className = 'digit-reel';
 
     const target = parseInt(digit);
-    // 3周 + ターゲットまで
-    const cycles = 3;
+
+    // 9から始まり3回転して target で止まるリール
+    // 順序: 9,8,7,6,5,4,3,2,1,0 を3周 → 9からtargetまで下降
     const items = [];
-    for (let c = 0; c < cycles; c++) {
-      for (let n = 0; n <= 9; n++) items.push(n);
+    for (let cycle = 0; cycle < 3; cycle++) {
+      for (let n = 9; n >= 0; n--) items.push(n);
     }
-    for (let n = 0; n <= target; n++) items.push(n);
+    // 最終: 9 → target（降順）
+    for (let n = 9; n >= target; n--) items.push(n);
 
     items.forEach(n => {
       const span = document.createElement('span');
@@ -328,11 +322,12 @@ function animateSlotCounter(count) {
     box.appendChild(reel);
     display.appendChild(box);
 
-    // 桁ごとに少しずらして回転開始
+    // アニメーション: 各桁を少しずらしてスタート、0.5秒で止まる
     const totalOffset = (items.length - 1) * H;
+    const delay = 60 + i * 80; // 左→右に順番に止まる
     setTimeout(() => {
-      reel.style.transition = `transform ${0.55 + i * 0.06}s cubic-bezier(0.15, 0.85, 0.35, 1)`;
+      reel.style.transition = `transform 0.5s cubic-bezier(0.2, 0.8, 0.3, 1)`;
       reel.style.transform = `translateY(-${totalOffset}px)`;
-    }, 80 + i * 60);
+    }, delay);
   });
 }

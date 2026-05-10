@@ -670,32 +670,30 @@ footer {
 
 .foot-links a:hover { color: var(--text); }
 
-/* ===== ヒーロー訪問者カウンター ===== */
-.hero-counter {
-  display: flex;
-  width: fit-content;
-  align-items: center;
-  gap: 10px;
-  margin-top: 32px;
-  background: var(--bg2);
-  border: 1.5px solid var(--border);
-  border-radius: 16px;
-  padding: 10px 20px;
-  font-size: 14px;
-  color: var(--sub);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+/* ===== スロットカウンターステージ ===== */
+.counter-stage {
+  text-align: center;
+  padding: 48px 0 36px;
 }
 
-.hero-counter-label { white-space: nowrap; flex-shrink: 0; }
+.counter-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--sub);
+  margin-bottom: 20px;
+}
 
-.hero-counter-dot {
+.counter-dot {
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: #4caf50;
-  box-shadow: 0 0 0 0 rgba(76,175,80,0.4);
+  display: inline-block;
   animation: pulse-dot 2s infinite;
-  flex-shrink: 0;
 }
 
 @keyframes pulse-dot {
@@ -704,35 +702,55 @@ footer {
   100% { box-shadow: 0 0 0 0 rgba(76,175,80,0); }
 }
 
+.counter-label {
+  margin-top: 16px;
+  font-size: 15px;
+  color: var(--sub);
+  letter-spacing: 0.04em;
+}
+
+.hero-sep {
+  width: 48px;
+  height: 2px;
+  background: var(--border);
+  margin: 36px 0;
+}
+
 /* ===== スロット数字 ===== */
 .digit-display {
   display: flex;
-  gap: 3px;
+  gap: 6px;
   align-items: center;
+  justify-content: flex-start;
 }
 
 .digit-box {
-  width: 32px;
-  height: 44px;
+  width: 56px;
+  height: 76px;
   overflow: hidden;
-  background: #1a1a1a;
-  border-radius: 7px;
-  border: 1px solid #333;
+  background: #111;
+  border-radius: 10px;
+  border: 2px solid #2a2a2a;
   position: relative;
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.15);
 }
 
-/* 上下のフェードマスク */
 .digit-box::before,
 .digit-box::after {
   content: '';
   position: absolute;
   left: 0; right: 0;
-  height: 10px;
-  z-index: 1;
+  height: 18px;
+  z-index: 2;
   pointer-events: none;
 }
-.digit-box::before { top: 0;    background: linear-gradient(to bottom, #1a1a1a, transparent); }
-.digit-box::after  { bottom: 0; background: linear-gradient(to top,   #1a1a1a, transparent); }
+.digit-box::before { top: 0;    background: linear-gradient(to bottom, #111 20%, transparent); }
+.digit-box::after  { bottom: 0; background: linear-gradient(to top,   #111 20%, transparent); }
+
+/* 中央ライン */
+.digit-box::before {
+  border-bottom: 1px solid rgba(255,224,51,0.15);
+}
 
 .digit-reel {
   display: flex;
@@ -741,21 +759,15 @@ footer {
 }
 
 .digit-reel span {
-  height: 44px;
-  line-height: 44px;
+  height: 76px;
+  line-height: 76px;
   text-align: center;
   font-family: 'Courier New', monospace;
-  font-size: 24px;
+  font-size: 42px;
   font-weight: 900;
   color: var(--yellow);
   flex-shrink: 0;
-}
-
-.digit-sep {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--sub);
-  line-height: 44px;
+  display: block;
 }
 
 /* ===== キリ番オーバーレイ ===== */

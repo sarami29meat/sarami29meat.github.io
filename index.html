@@ -7,7 +7,7 @@
   <meta name="description" content="気になったら作る。個人開発ツール配布サイト。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=3">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRNSLRMSQV"></script>
   <script>
@@ -37,20 +37,26 @@
 <main>
   <section class="hero">
     <div class="wrap">
+
+      <!-- スロットカウンター -->
+      <div class="counter-stage">
+        <p class="counter-eyebrow"><span class="counter-dot"></span> VISITOR</p>
+        <div class="digit-display" id="digit-display">
+          <div class="digit-box loading"><div class="digit-reel"><span>9</span></div></div>
+          <div class="digit-box loading"><div class="digit-reel"><span>9</span></div></div>
+          <div class="digit-box loading"><div class="digit-reel"><span>9</span></div></div>
+        </div>
+        <p class="counter-label">人目の訪問者</p>
+      </div>
+
+      <div class="hero-sep"></div>
+
       <p class="hero-eyebrow" data-i18n="hero-eyebrow">個人開発</p>
       <h1 data-i18n="hero-title">気になったら、<br>つくる。</h1>
       <p class="hero-body" data-i18n="hero-body">「こういうのあればな」と思ったものを作って公開してます。<br>使ってみて何か思ったらフィードバックください。</p>
       <div class="hero-actions">
         <a href="#tools" class="btn-primary" data-i18n="hero-btn-tools">ツールを見る</a>
         <a href="https://github.com/sarami29meat" target="_blank" class="btn-ghost">GitHub</a>
-      </div>
-      <div class="hero-counter">
-        <span class="hero-counter-dot"></span>
-        <span class="hero-counter-label">あなたは</span>
-        <div class="digit-display" id="digit-display">
-          <div class="digit-box"><div class="digit-reel"><span>—</span></div></div>
-        </div>
-        <span class="hero-counter-label">人目の訪問者</span>
       </div>
     </div>
   </section>
