@@ -487,23 +487,16 @@
   <!-- Analytics links -->
   <div class="section">
     <p class="section-label">詳細アナリティクス</p>
+    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:10px;">
+      <iframe width="100%" height="500" src="https://datastudio.google.com/embed/reporting/9a441dda-20dd-4638-9c0d-2dd628c31d3b/page/vRkxF" frameborder="0" style="border:0;display:block;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+    </div>
     <div class="cards-1">
-      <div id="ga-setup" class="setup-card">
-        <span class="setup-icon">📊</span>
-        <div>
-          <div class="setup-title">Google Analytics 未設定</div>
-          <div class="setup-text">
-            年齢・性別・地域・流入元などの詳細データはGoogle Analytics 4で確認できます。無料で設定できます。設定すると「Analytics を見る」ボタンが表示されます。
-          </div>
-          <a class="setup-btn" href="https://analytics.google.com" target="_blank">GA4 を設定する →</a>
-        </div>
-      </div>
-      <a class="link-card" href="https://analytics.google.com" target="_blank" id="ga-link" style="display:none;">
+      <a class="link-card" href="https://analytics.google.com" target="_blank">
         <div class="link-card-left">
           <div class="link-card-icon">📊</div>
           <div>
             <div class="link-card-title">Google Analytics</div>
-            <div class="link-card-sub">訪問者・年齢・性別・地域</div>
+            <div class="link-card-sub">詳細データを見る</div>
           </div>
         </div>
         <span class="link-card-arrow">→</span>
@@ -633,14 +626,7 @@ document.getElementById('bmc-save').addEventListener('click', () => {
   setTimeout(() => { btn.textContent = '保存'; btn.classList.remove('saved'); }, 1500);
 });
 
-// ===== GA setup check =====
-function checkGA() {
-  const set = localStorage.getItem(GA_KEY);
-  if (set) {
-    document.getElementById('ga-setup').style.display = 'none';
-    document.getElementById('ga-link').style.display  = 'flex';
-  }
-}
+function checkGA() {}
 
 // ===== Refresh =====
 async function loadAll() {
