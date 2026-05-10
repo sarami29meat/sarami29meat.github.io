@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dev Tools — ブラウザ拡張・ユーティリティ</title>
+  <meta name="description" content="個人開発したブラウザ拡張機能・ユーティリティツールを配布しています。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="index.html">dev<span>.</span>tools</a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">ホーム</a></li>
+      <li><a href="blog/index.html">ブログ</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
+    </ul>
+    <div class="nav-burger" aria-label="メニュー">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">個人開発</div>
+      <h1>ネットをもっと<br><span class="accent">快適に</span>するツール</h1>
+      <p>ブラウザ拡張機能やユーティリティを個人で開発・配布しています。すべて無料またはドネーション制。</p>
+      <div class="hero-actions">
+        <a href="#tools" class="btn btn-primary">ツールを見る</a>
+        <a href="contact.html" class="btn btn-outline">サポートする ☕</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tools -->
+  <section class="section" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Tools</div>
+        <div class="section-title">公開中のツール</div>
+        <div class="section-sub">GitHubで公開中。気に入ったらスターをもらえると励みになります。</div>
+      </div>
+      <div class="tools-grid" id="tools-grid">
+        <!-- JS で描画 -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="section" id="blog">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Blog</div>
+        <div class="section-title">最近の記事</div>
+      </div>
+      <div class="posts-list" id="recent-posts">
+        <!-- JS で描画 -->
+      </div>
+      <div style="margin-top:16px; text-align:right;">
+        <a href="blog/index.html" class="btn btn-outline" style="font-size:13px;">すべて見る →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 dev.tools</span>
+      <div class="footer-links">
+        <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
+        <a href="contact.html">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="data/tools.js"></script>
+<script src="data/posts.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

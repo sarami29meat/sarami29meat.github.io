@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ブログ — dev.tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">dev<span>.</span>tools</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">ホーム</a></li>
+      <li><a href="index.html" class="active">ブログ</a></li>
+      <li><a href="../contact.html">お問い合わせ</a></li>
+    </ul>
+    <div class="nav-burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="post-header">
+      <div class="section-label">Blog</div>
+      <h1 style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-top:10px;">開発ブログ</h1>
+      <p style="color:var(--muted);margin-top:10px;">ツール開発の裏話・技術メモなど。</p>
+    </div>
+
+    <div class="blog-grid" id="blog-grid">
+      <!-- JS で描画 -->
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 dev.tools</span>
+      <div class="footer-links">
+        <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
+        <a href="../contact.html">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../data/tools.js"></script>
+<script src="../data/posts.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>

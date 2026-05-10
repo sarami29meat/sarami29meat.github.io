@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Twitter AI Filterを作った話 — dev.tools</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="../index.html">dev<span>.</span>tools</a>
+    <ul class="nav-links">
+      <li><a href="../index.html">ホーム</a></li>
+      <li><a href="index.html" class="active">ブログ</a></li>
+      <li><a href="../contact.html">お問い合わせ</a></li>
+    </ul>
+    <div class="nav-burger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<main>
+  <div class="container">
+    <div class="post-header">
+      <div class="post-header-tag">開発</div>
+      <h1>Twitter AI Filterを作った話</h1>
+      <div class="post-header-meta">2026年5月10日</div>
+    </div>
+
+    <article class="post-content">
+      <p>
+        最近Twitter（X）のリプライ欄を眺めていると、明らかにAIが生成したような定型文コメントが増えてきた。
+        「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。
+        気になって仕方なかったので、自動でフィルタリングするChrome拡張を作った。
+      </p>
+
+      <h2>どうやって検出するか</h2>
+      <p>
+        大きく2つのアプローチを組み合わせている。
+      </p>
+      <ul>
+        <li><strong>テキストスコアリング</strong>：AI的なフレーズ（「承知しました」「喜んでお手伝い」など）のパターンマッチング</li>
+        <li><strong>アカウントスコアリング</strong>：作成日・フォロワー数・投稿数・デフォルトアイコンなどのシグナル</li>
+      </ul>
+      <p>
+        2つを重み付けで合算し、スコアが閾値を超えたリプライを折りたたんで表示する。
+        デフォルト閾値は35点（100点満点）。ポップアップから調整できる。
+      </p>
+
+      <h2>技術的な話：Chrome拡張とTwitter内部API</h2>
+      <p>
+        一番苦労したのはTwitter内部のGraphQL APIからデータを取得する部分。
+        Chrome拡張のContent ScriptはISOLATED worldで動くので、
+        ページのfetch/XHRを直接傍受できない。
+      </p>
+      <p>
+        そこで <code>world: "MAIN"</code> で動くインターセプタースクリプト（interceptor.js）を別途用意し、
+        ページのfetch/XHRをラップしてユーザーデータを取得、
+        <code>CustomEvent</code> でISOLATED worldのcontent.jsに中継する構成にした。
+      </p>
+
+      <h2>今後</h2>
+      <p>
+        GitHubで無料公開予定。気に入ったらコーヒーをおごってもらえると嬉しい。
+      </p>
+
+      <p style="margin-top:32px;">
+        <a href="../contact.html">☕ サポートする</a>　／
+        <a href="index.html">← ブログ一覧</a>
+      </p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2026 dev.tools</span>
+      <div class="footer-links">
+        <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
+        <a href="../contact.html">お問い合わせ</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
