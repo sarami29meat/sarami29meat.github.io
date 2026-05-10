@@ -251,19 +251,31 @@ applyLang();
     const isAdmin = localStorage.getItem('sarami_admin') === '1';
     const lastVisit = parseInt(localStorage.getItem('sarami_last_visit') || '0', 10);
     const now = Date.now();
-    const cooldown = 24 * 60 * 60 * 1000; // 24時間
-
-    // 管理人 or 24時間以内の再訪問はカウントしない（GETのみ）
+    const cooldown = 24 * 60 * 60 * 1000;
     const shouldCount = !isAdmin && (now - lastVisit > cooldown);
-    const endpoint = shouldCount
-      ? 'https://api.counterapi.dev/v1/sarami29meat/visits/up'
-      : 'https://api.counterapi.dev/v1/sarami29meat/visits';
 
-    const res = await fetch(endpoint);
-    if (!res.ok) throw new Error();
+    // API1: counterapi.dev
+    const apis = shouldCount ? [
+      'https://api.counterapi.dev/v1/sarami29meat/visits/up',
+      'https://api.countapi.xyz/hit/sarami29meat.github.io/visits',
+    ] : [
+      'https://api.counterapi.dev/v1/sarami29meat/visits',
+      'https://api.countapi.xyz/get/sarami29meat.github.io/visits',
+    ];
+
+    let count = null;
+    for (const url of apis) {
+      try {
+        const r = await fetch(url);
+        if (!r.ok) continue;
+        const d = await r.json();
+        count = d.value ?? d.count ?? null;
+        if (count !== null) break;
+      } catch(_) {}
+    }
+    if (count === null) throw new Error('all apis failed');
     if (shouldCount) localStorage.setItem('sarami_last_visit', String(now));
-    const data = await res.json();
-    const count = data.value;
+
     animateSlotCounter(count);
 
     const idx = KIRIBAN.indexOf(count);
@@ -291,7 +303,7 @@ function animateSlotCounter(count) {
   if (!display) return;
   display.innerHTML = '';
 
-  const H = 76; // digit-boxの高さ(px)
+  const H = 80; // digit-boxの高さ(px)
   // 必ず3桁ゼロ埋め
   const padded = String(count).padStart(3, '0').split('');
 
