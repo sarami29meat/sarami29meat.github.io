@@ -107,6 +107,38 @@
       font-weight: bold;
     }
 
+    .tweet-box {
+      border: 3px solid #00CCFF;
+      background: #000820;
+      color: #fff;
+      padding: 14px 20px;
+      margin: 16px auto;
+      max-width: 480px;
+      font-size: 13px;
+      line-height: 2.2;
+    }
+
+    .tweet-box .hint {
+      color: #aaa;
+      font-size: 11px;
+    }
+
+    .tweet-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      font-weight: bold;
+      font-size: 13px;
+      padding: 8px 20px;
+      border: 2px solid #00CCFF;
+      text-decoration: none;
+      box-shadow: 3px 3px 0 #00CCFF;
+      margin-top: 8px;
+      letter-spacing: 0.05em;
+    }
+
+    .tweet-btn:hover { opacity: 0.8; }
+
     .back-btn {
       display: inline-block;
       background: #FF0080;
@@ -179,6 +211,14 @@
 
   <div class="stripe"></div>
 
+  <div class="tweet-box">
+    ★ キリ番ゲットですね。<br>
+    呟いて拡散してくれてもいいんですよ？(笑)<br>
+    いや、別に強制はしませんけど…ね？(^▽^)<br>
+    <span class="hint">※ 拡散してくれたら作者が泣いて喜びます(T▽T)</span><br>
+    <a class="tweet-btn" id="tweet-btn" href="#" target="_blank">𝕏 でポストする</a>
+  </div>
+
   <div class="coffee-box">
     ★ もしよかったら作者にコーヒーを奢ってください★<br>
     → <a href="https://www.buymeacoffee.com/sarami2929" target="_blank">☕ Buy me a coffee</a><br>
@@ -210,6 +250,11 @@
     const el = document.getElementById('oiwai-msg');
     el.innerHTML = `<span class="big">＼(^o^)／ おめでとうございます！！</span>${decodeURIComponent(msg)}`;
   }
+
+  // ツイートボタン
+  const tweetBtn = document.getElementById('tweet-btn');
+  const tweetText = `saramiのサイトで${num ? Number(num).toLocaleString('ja-JP')+'人目の' : ''}キリ番をゲットしました！＼(^o^)／\n#sarami #キリ番`;
+  tweetBtn.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent('https://sarami29meat.github.io')}`;
 })();
 
 // 紙吹雪
