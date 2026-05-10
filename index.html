@@ -3,80 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dev Tools — ブラウザ拡張・ユーティリティ</title>
-  <meta name="description" content="個人開発したブラウザ拡張機能・ユーティリティツールを配布しています。">
+  <title>sarami — 個人開発</title>
+  <meta name="description" content="あったらいいのにを放置できなくて作ってます。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">dev<span>.</span>tools</a>
+    <a class="nav-logo" href="index.html">sarami<em>_</em></a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">ホーム</a></li>
-      <li><a href="blog/index.html">ブログ</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
+      <li><a href="index.html" class="active">home</a></li>
+      <li><a href="blog/index.html">blog</a></li>
+      <li><a href="contact.html">contact</a></li>
     </ul>
-    <div class="nav-burger" aria-label="メニュー">
-      <span></span><span></span><span></span>
-    </div>
+    <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
 <main>
-  <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-tag">個人開発</div>
-      <h1>ネットをもっと<br><span class="accent">快適に</span>するツール</h1>
-      <p>ブラウザ拡張機能やユーティリティを個人で開発・配布しています。すべて無料またはドネーション制。</p>
-      <div class="hero-actions">
-        <a href="#tools" class="btn btn-primary">ツールを見る</a>
-        <a href="contact.html" class="btn btn-outline">サポートする ☕</a>
+    <div class="wrap">
+      <p class="hero-kicker"><span></span>indie developer</p>
+      <h1>なければ、<br><span class="dim">つくればいい。</span></h1>
+      <p class="hero-body">
+        「こんなツールあったらな」をそのまま放置できない。<br>
+        気づいたら作って、そのまま公開してます。
+      </p>
+      <div class="hero-links">
+        <a href="#tools" class="link-main">ツールを見る →</a>
+        <a href="https://github.com/sarami29meat" target="_blank" class="link-sub">GitHub</a>
       </div>
     </div>
   </section>
 
-  <!-- Tools -->
-  <section class="section" id="tools">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Tools</div>
-        <div class="section-title">公開中のツール</div>
-        <div class="section-sub">GitHubで公開中。気に入ったらスターをもらえると励みになります。</div>
+  <hr class="divider">
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-label">// tools</p>
+        <h2 class="sec-title">公開中のもの</h2>
       </div>
-      <div class="tools-grid" id="tools-grid">
-        <!-- JS で描画 -->
-      </div>
+      <div class="tools-grid" id="tools-grid"></div>
     </div>
   </section>
 
-  <!-- Blog -->
-  <section class="section" id="blog">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-label">Blog</div>
-        <div class="section-title">最近の記事</div>
+  <hr class="divider">
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="sec-label">// blog</p>
+        <h2 class="sec-title">最近書いたこと</h2>
       </div>
-      <div class="posts-list" id="recent-posts">
-        <!-- JS で描画 -->
-      </div>
-      <div style="margin-top:16px; text-align:right;">
-        <a href="blog/index.html" class="btn btn-outline" style="font-size:13px;">すべて見る →</a>
-      </div>
+      <div class="posts" id="recent-posts"></div>
+      <a href="blog/index.html" class="more-link">全部見る →</a>
     </div>
   </section>
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-copy">© 2026 dev.tools</span>
-      <div class="footer-links">
+  <div class="wrap">
+    <div class="foot-inner">
+      <span class="foot-copy">© 2026 sarami</span>
+      <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="contact.html">お問い合わせ</a>
+        <a href="contact.html">contact</a>
       </div>
     </div>
   </div>

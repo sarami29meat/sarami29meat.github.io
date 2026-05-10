@@ -3,68 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>お問い合わせ — dev.tools</title>
+  <title>contact — sarami</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">dev<span>.</span>tools</a>
+    <a class="nav-logo" href="index.html">sarami<em>_</em></a>
     <ul class="nav-links">
-      <li><a href="index.html">ホーム</a></li>
-      <li><a href="blog/index.html">ブログ</a></li>
-      <li><a href="contact.html" class="active">お問い合わせ</a></li>
+      <li><a href="index.html">home</a></li>
+      <li><a href="blog/index.html">blog</a></li>
+      <li><a href="contact.html" class="active">contact</a></li>
     </ul>
     <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
 <main>
-  <div class="container">
-    <div class="post-header">
-      <div class="section-label">Contact</div>
-      <h1 style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-top:10px;">お問い合わせ・サポート</h1>
-      <p style="color:var(--muted);margin-top:10px;">バグ報告・要望・感想など、お気軽にどうぞ。</p>
+  <div class="wrap">
+    <div class="post-hd">
+      <p class="post-hd-label">// contact</p>
+      <h1>連絡とサポート</h1>
+      <p style="color:var(--muted);font-size:14px;margin-top:10px;">バグ報告・要望・感想、なんでも。</p>
     </div>
 
-    <div class="contact-grid section" style="border-top:none;padding-top:0;">
+    <div class="contact-grid sec" style="padding-top:0;border-top:none;">
 
-      <!-- Contact Form -->
       <div class="contact-box">
-        <h3>📨 メッセージを送る</h3>
-        <p>バグ・要望・感想など何でも。<br>※ Formspreeを使用しています。</p>
-        <!-- action を Formspree のエンドポイントに変更してください -->
-        <!-- 例: https://formspree.io/f/XXXXXXXX -->
+        <p class="contact-box-title">メッセージ</p>
+        <p class="contact-box-sub">動かない・こんな機能ほしい・ただの感想、なんでも歓迎です。</p>
         <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-          <div class="form-group">
-            <label>名前</label>
-            <input type="text" name="name" placeholder="お名前（任意）">
+          <div class="field">
+            <label>名前（任意）</label>
+            <input type="text" name="name" placeholder="your name">
           </div>
-          <div class="form-group">
-            <label>メールアドレス *</label>
-            <input type="email" name="email" required placeholder="reply@example.com">
+          <div class="field">
+            <label>メール *</label>
+            <input type="email" name="email" required placeholder="you@example.com">
           </div>
-          <div class="form-group">
+          <div class="field">
             <label>メッセージ *</label>
-            <textarea name="message" required placeholder="ご連絡内容をどうぞ"></textarea>
+            <textarea name="message" required placeholder="なんでも書いてください"></textarea>
           </div>
-          <button type="submit" class="btn btn-submit">送信する</button>
+          <button type="submit" class="btn-send">送信</button>
         </form>
       </div>
 
-      <!-- Donation -->
-      <div class="contact-box donation-box">
-        <div class="donation-emoji">☕</div>
-        <h3>開発をサポートする</h3>
-        <p>ツールが役に立ったら、コーヒー1杯分だけでも支援してもらえると励みになります。</p>
-        <!-- Buy Me a Coffee の username を変更してください -->
+      <div class="contact-box donate-box">
+        <div class="donate-icon">☕</div>
+        <p class="donate-title">開発を支援する</p>
+        <p class="donate-sub">
+          全部無料で使えます。<br>
+          それでも「役に立った」と思ったら、コーヒー1杯分だけ投げてもらえると次への燃料になります。
+        </p>
         <a class="bmc-btn" href="https://www.buymeacoffee.com/sarami2929" target="_blank">
           ☕ Buy me a coffee
         </a>
-        <p style="font-size:12px;">もちろん無料でも使えます。</p>
       </div>
 
     </div>
@@ -72,12 +69,12 @@
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-copy">© 2026 dev.tools</span>
-      <div class="footer-links">
+  <div class="wrap">
+    <div class="foot-inner">
+      <span class="foot-copy">© 2026 sarami</span>
+      <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="contact.html">お問い合わせ</a>
+        <a href="contact.html">contact</a>
       </div>
     </div>
   </div>

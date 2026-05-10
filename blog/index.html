@@ -3,46 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ブログ — dev.tools</title>
+  <title>blog — sarami</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="../index.html">dev<span>.</span>tools</a>
+    <a class="nav-logo" href="../index.html">sarami<em>_</em></a>
     <ul class="nav-links">
-      <li><a href="../index.html">ホーム</a></li>
-      <li><a href="index.html" class="active">ブログ</a></li>
-      <li><a href="../contact.html">お問い合わせ</a></li>
+      <li><a href="../index.html">home</a></li>
+      <li><a href="index.html" class="active">blog</a></li>
+      <li><a href="../contact.html">contact</a></li>
     </ul>
     <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
 </nav>
 
 <main>
-  <div class="container">
-    <div class="post-header">
-      <div class="section-label">Blog</div>
-      <h1 style="font-size:32px;font-weight:800;color:#fff;letter-spacing:-0.5px;margin-top:10px;">開発ブログ</h1>
-      <p style="color:var(--muted);margin-top:10px;">ツール開発の裏話・技術メモなど。</p>
+  <div class="wrap">
+    <div class="post-hd">
+      <p class="post-hd-label">// blog</p>
+      <h1>書いたこと</h1>
+      <p style="color:var(--muted);font-size:14px;margin-top:10px;">開発の裏話とか、気づいたこととか。</p>
     </div>
-
-    <div class="blog-grid" id="blog-grid">
-      <!-- JS で描画 -->
-    </div>
+    <div class="blog-list" id="blog-grid"></div>
   </div>
 </main>
 
 <footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-copy">© 2026 dev.tools</span>
-      <div class="footer-links">
+  <div class="wrap">
+    <div class="foot-inner">
+      <span class="foot-copy">© 2026 sarami</span>
+      <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="../contact.html">お問い合わせ</a>
+        <a href="../contact.html">contact</a>
       </div>
     </div>
   </div>
