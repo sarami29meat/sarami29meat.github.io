@@ -14,8 +14,11 @@ function formatDate(str) {
 function renderTools() {
   const el = document.getElementById('tools-grid');
   if (!el || typeof TOOLS === 'undefined') return;
-  el.innerHTML = TOOLS.map(t => `
-    <div class="tool-card">
+  el.innerHTML = TOOLS.map(t => {
+    const href = t.download && t.download !== '#' ? t.download : (t.github || '#');
+    const target = href !== '#' ? 'target="_blank"' : '';
+    return `
+    <a class="tool-card" href="${href}" ${target}>
       <div class="tool-top">
         <span class="tool-icon">${t.icon}</span>
         <span class="tool-live">公開中</span>
@@ -23,11 +26,11 @@ function renderTools() {
       <div class="tool-name">${t.name}</div>
       <div class="tool-desc">${t.desc}</div>
       <div class="tool-foot">
-        ${t.github ? `<a class="tool-link" href="${t.github}" target="_blank">GitHub</a>` : ''}
-        ${t.download && t.download !== '#' ? `<a class="tool-link" href="${t.download}" target="_blank">ダウンロード</a>` : ''}
+        ${t.github ? `<span class="tool-link">GitHub →</span>` : ''}
+        ${t.download && t.download !== '#' ? `<span class="tool-link">ダウンロード →</span>` : ''}
       </div>
-    </div>
-  `).join('');
+    </a>
+  `}).join('');
 }
 
 // recent posts (index)
