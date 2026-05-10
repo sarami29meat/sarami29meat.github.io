@@ -287,8 +287,8 @@ applyLang();
 
       const overlay = document.getElementById('kiriban-overlay');
       document.getElementById('kiriban-emoji').textContent = emoji;
-      document.getElementById('kiriban-msg').innerHTML =
-        `<strong>${count.toLocaleString()}人目</strong>の訪問者です！<br><br>${msg}`;
+      document.getElementById('kiriban-num').textContent = `${count.toLocaleString()} 人目！！`;
+      document.getElementById('kiriban-msg').innerHTML = msg;
       overlay.style.display = 'flex';
       document.getElementById('kiriban-close').onclick = () => overlay.style.display = 'none';
     }
@@ -333,17 +333,15 @@ function animateSlotCounter(count) {
     box.appendChild(reel);
     display.appendChild(box);
 
-    // アニメーション: requestAnimationFrameで確実に初期状態をレンダリングしてから開始
+    // 左が最初に止まり、右が最後に止まる
+    // 全桁同時にスタート → 各桁のdurationが違うので左から順に止まる
+    const durations = [0.55, 0.85, 1.15]; // 左: 速い, 右: 遅い
     const totalOffset = (items.length - 1) * H;
-    const delay = i * 120; // 左→右に順番に止まる
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          // 最初は速く、終わりに近づくほど急激にスロー
-          reel.style.transition = `transform 1.0s cubic-bezier(0.05, 0.7, 0.1, 1.0)`;
-          reel.style.transform = `translateY(-${totalOffset}px)`;
-        });
+        reel.style.transition = `transform ${durations[i] || 1.15}s cubic-bezier(0.05, 0.7, 0.1, 1.0)`;
+        reel.style.transform = `translateY(-${totalOffset}px)`;
       });
-    }, delay);
+    });
   });
 }
