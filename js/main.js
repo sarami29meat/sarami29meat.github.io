@@ -258,10 +258,8 @@ applyLang();
     // API1: counterapi.dev
     const apis = shouldCount ? [
       'https://api.counterapi.dev/v1/sarami29meat/visits/up',
-      'https://api.countapi.xyz/hit/sarami29meat.github.io/visits',
     ] : [
-      'https://api.counterapi.dev/v1/sarami29meat/visits',
-      'https://api.countapi.xyz/get/sarami29meat.github.io/visits',
+      'https://api.counterapi.dev/v1/sarami29meat/visits/',
     ];
 
     let count = null;
@@ -335,12 +333,17 @@ function animateSlotCounter(count) {
     box.appendChild(reel);
     display.appendChild(box);
 
-    // アニメーション: 各桁を少しずらしてスタート、0.5秒で止まる
+    // アニメーション: requestAnimationFrameで確実に初期状態をレンダリングしてから開始
     const totalOffset = (items.length - 1) * H;
-    const delay = 60 + i * 80; // 左→右に順番に止まる
+    const delay = i * 120; // 左→右に順番に止まる
     setTimeout(() => {
-      reel.style.transition = `transform 0.5s cubic-bezier(0.2, 0.8, 0.3, 1)`;
-      reel.style.transform = `translateY(-${totalOffset}px)`;
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          // 最初は速く、終わりに近づくほど急激にスロー
+          reel.style.transition = `transform 1.0s cubic-bezier(0.05, 0.7, 0.1, 1.0)`;
+          reel.style.transform = `translateY(-${totalOffset}px)`;
+        });
+      });
     }, delay);
   });
 }
