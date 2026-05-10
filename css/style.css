@@ -672,7 +672,8 @@ footer {
 
 /* ===== ヒーロー訪問者カウンター ===== */
 .hero-counter {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 10px;
   margin-top: 32px;
@@ -685,7 +686,7 @@ footer {
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
 }
 
-.hero-counter-label { white-space: nowrap; }
+.hero-counter-label { white-space: nowrap; flex-shrink: 0; }
 
 .hero-counter-dot {
   width: 8px;

@@ -256,8 +256,8 @@ applyLang();
     // 管理人 or 24時間以内の再訪問はカウントしない（GETのみ）
     const shouldCount = !isAdmin && (now - lastVisit > cooldown);
     const endpoint = shouldCount
-      ? 'https://api.countapi.xyz/hit/sarami29meat.github.io/visits'
-      : 'https://api.countapi.xyz/get/sarami29meat.github.io/visits';
+      ? 'https://api.counterapi.dev/v1/sarami29meat/visits/up'
+      : 'https://api.counterapi.dev/v1/sarami29meat/visits';
 
     const res = await fetch(endpoint);
     if (!res.ok) throw new Error();
