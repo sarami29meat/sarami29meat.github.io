@@ -195,3 +195,72 @@ if (form) {
 
 // ===== Init =====
 applyLang();
+
+// ===== 訪問者カウンター & キリ番 =====
+(async function initCounter() {
+  const el = document.getElementById('visitor-count');
+  if (!el) return;
+
+  const KIRIBAN = [10, 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000];
+  const KIRIBAN_MSGS = {
+    ja: [
+      '初めまして！あなたが最初の訪問者です。記念すべき1人目、ありがとうございます🥹',
+      'ついに50人突破！こんなサイトに来てくれてありがとうございます。',
+      '100人目おめでとうございます！キリ番ゲットですね。何か買って飲んでください☕',
+      '200人突破。もはや同窓会できそうな人数です。',
+      '300人。ちょっとした学校のクラスですね。ありがとうございます。',
+      '500人！ライブハウス満員くらいの人数が来てくれました🎸',
+      '1000人突破！！！感謝しかないです。コーヒー1杯分奢ってもらえると本当に泣きます☕',
+      '2000人！もうちょっとした小さな町ですよ。ありがとうございます！',
+      '3000人！！ありがとうございます。サイト作って本当によかった。',
+      '5000人！！！ここまで来てくれるとは思ってなかった。本当にありがとうございます🙏',
+      '1万人突破！！！信じられない。本当にありがとうございます。泣いてます。',
+      '2万人！！もう言葉がない。ありがとう。',
+      '5万人！！伝説です。',
+      '10万人！！！もうこれは歴史です。',
+    ],
+    en: [
+      "You're the very first visitor. Thank you for being here 🥹",
+      "50 visitors! Thanks for stopping by this little corner of the internet.",
+      "100th visitor! You hit the jackpot. Go treat yourself to something nice ☕",
+      "200 visitors. We could almost have a party.",
+      "300 visitors. That's a whole classroom. Thank you.",
+      "500 visitors! A packed small venue's worth of people 🎸",
+      "1,000 visitors!! I genuinely can't thank you enough. If you buy me a coffee I will cry ☕",
+      "2,000 visitors! That's a small neighborhood. Thank you!!",
+      "3,000 visitors!! So glad I made this site.",
+      "5,000 visitors!!! I never expected this. Thank you so much 🙏",
+      "10,000 visitors!!! I'm actually crying. Thank you.",
+      "20,000 visitors!! Words fail me. Thank you.",
+      "50,000 visitors!! This is legendary.",
+      "100,000 visitors!!! This is history.",
+    ],
+  };
+
+  try {
+    const res = await fetch('https://api.countapi.xyz/hit/sarami29meat.github.io/visits');
+    if (!res.ok) throw new Error();
+    const data = await res.json();
+    const count = data.value;
+    el.textContent = count.toLocaleString('ja-JP');
+
+    // キリ番チェック
+    const idx = KIRIBAN.indexOf(count);
+    if (idx !== -1) {
+      const lang = localStorage.getItem('sarami_lang') || 'ja';
+      const msgs = lang === 'en' ? KIRIBAN_MSGS.en : KIRIBAN_MSGS.ja;
+      const msg = msgs[idx] || `${count.toLocaleString()}人目の訪問者です！🎉`;
+      const emojis = ['🎉','🥳','🎊','✨','🎸','☕','🙏','🏆'];
+      const emoji = emojis[idx % emojis.length];
+
+      const overlay = document.getElementById('kiriban-overlay');
+      document.getElementById('kiriban-emoji').textContent = emoji;
+      document.getElementById('kiriban-msg').innerHTML =
+        `<strong>${count.toLocaleString()}人目</strong>の訪問者です！<br><br>${msg}`;
+      overlay.style.display = 'flex';
+      document.getElementById('kiriban-close').onclick = () => overlay.style.display = 'none';
+    }
+  } catch {
+    el.textContent = '…';
+  }
+})();
