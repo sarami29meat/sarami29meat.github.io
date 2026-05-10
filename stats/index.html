@@ -6,7 +6,6 @@
   <title>Stats — sarami</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRNSLRMSQV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -18,354 +17,134 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #0f0f0f;
-      --bg2:     #1a1a1a;
-      --bg3:     #222;
-      --border:  #2a2a2a;
-      --text:    #f0f0f0;
-      --sub:     #888;
-      --muted:   #555;
-      --yellow:  #FFE033;
-      --green:   #22c55e;
-      --blue:    #60a5fa;
-      --purple:  #a78bfa;
-      --red:     #f87171;
-      --font:    'Noto Sans JP', system-ui, sans-serif;
-      --r:       14px;
+      --bg:     #0f0f0f;
+      --bg2:    #1a1a1a;
+      --bg3:    #222;
+      --border: #2a2a2a;
+      --text:   #f0f0f0;
+      --sub:    #888;
+      --muted:  #555;
+      --yellow: #FFE033;
+      --green:  #22c55e;
+      --blue:   #60a5fa;
+      --purple: #a78bfa;
+      --red:    #f87171;
+      --font:   'Noto Sans JP', system-ui, sans-serif;
+      --r:      14px;
     }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      min-height: 100vh;
-      padding-bottom: 40px;
-    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font); min-height: 100vh; padding-bottom: 60px; }
 
-    /* ===== Header ===== */
+    /* Header */
     .hd {
-      padding: 20px 16px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 16px;
+      display: flex; align-items: center; justify-content: space-between;
       border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(15,15,15,0.95);
-      backdrop-filter: blur(10px);
+      position: sticky; top: 0;
+      background: rgba(15,15,15,0.96);
+      backdrop-filter: blur(12px);
       z-index: 10;
     }
-
-    .hd-logo {
-      font-size: 16px;
-      font-weight: 900;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .hd-logo span {
-      display: inline-block;
-      width: 6px; height: 6px;
-      background: var(--yellow);
-      border-radius: 50%;
-      margin-left: 3px;
-      vertical-align: middle;
-      margin-bottom: 2px;
-    }
-
-    .hd-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--sub);
-    }
-
-    .hd-refresh {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      color: var(--sub);
-      font-size: 18px;
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.15s;
-    }
-
+    .hd-logo { font-size: 16px; font-weight: 900; color: var(--text); text-decoration: none; }
+    .hd-logo span { display: inline-block; width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; margin-left: 3px; vertical-align: middle; margin-bottom: 2px; }
+    .hd-title { font-size: 12px; font-weight: 700; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+    .hd-refresh { background: var(--bg3); border: 1px solid var(--border); color: var(--sub); font-size: 18px; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.15s; }
     .hd-refresh:hover { background: var(--border); }
     .hd-refresh.spinning { animation: spin 1s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ===== Layout ===== */
-    .wrap { padding: 0 16px; }
+    /* Layout */
+    .wrap { max-width: 680px; margin: 0 auto; padding: 0 16px; }
 
-    .section { margin-top: 28px; }
-
+    /* Section */
+    .section { margin-top: 32px; }
     .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 12px;
-      padding: 0 2px;
+      font-size: 10px; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px; padding: 0 2px;
+      display: flex; align-items: center; gap: 8px;
     }
+    .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* ===== Cards ===== */
-    .cards-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
+    /* Hero visitor card */
+    .hero-card {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      border: 1px solid #1e3a5f;
+      border-radius: 20px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
     }
-
-    .cards-1 { display: flex; flex-direction: column; gap: 10px; }
-
-    .card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 16px;
-    }
-
-    .card-label {
-      font-size: 11px;
-      color: var(--sub);
-      font-weight: 600;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .card-dot {
-      width: 6px; height: 6px;
+    .hero-card::before {
+      content: '';
+      position: absolute; top: -40px; right: -40px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(96,165,250,0.15) 0%, transparent 70%);
       border-radius: 50%;
-      flex-shrink: 0;
     }
+    .hero-eyebrow { font-size: 11px; font-weight: 700; color: var(--blue); text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+    .hero-num { font-size: 64px; font-weight: 900; color: #fff; line-height: 1; letter-spacing: -3px; }
+    .hero-unit { font-size: 18px; font-weight: 600; color: var(--sub); margin-left: 4px; }
+    .hero-sub { font-size: 12px; color: #4a7ba7; margin-top: 6px; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .hero-stat-label { font-size: 11px; color: #4a7ba7; margin-bottom: 4px; }
+    .hero-stat-val { font-size: 22px; font-weight: 900; color: var(--blue); }
+    .hero-stat-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
-    .card-value {
-      font-size: 28px;
-      font-weight: 900;
-      color: var(--text);
-      line-height: 1;
-      letter-spacing: -1px;
-    }
-
-    .card-sub {
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 5px;
-    }
-
-    .card-trend {
-      font-size: 11px;
-      font-weight: 700;
-      margin-top: 6px;
-    }
-
-    .trend-up   { color: var(--green); }
-    .trend-same { color: var(--muted); }
-    .trend-down { color: var(--red); }
-
-    /* ===== Wide card ===== */
-    .card-wide {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .card-wide-left { flex: 1; }
-
-    .card-wide-icon {
-      font-size: 32px;
-      line-height: 1;
-    }
-
-    /* ===== Setup card ===== */
-    .setup-card {
-      background: rgba(255,224,51,0.06);
-      border: 1px solid rgba(255,224,51,0.2);
+    /* Looker embed */
+    .looker-wrap {
       border-radius: var(--r);
-      padding: 16px;
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .setup-icon { font-size: 22px; flex-shrink: 0; }
-
-    .setup-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--yellow);
-      margin-bottom: 4px;
-    }
-
-    .setup-text {
-      font-size: 12px;
-      color: var(--sub);
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-
-    .setup-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--yellow);
-      background: rgba(255,224,51,0.1);
-      border: 1px solid rgba(255,224,51,0.3);
-      padding: 6px 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      cursor: pointer;
-      font-family: var(--font);
-      transition: background 0.15s;
-    }
-
-    .setup-btn:hover { background: rgba(255,224,51,0.2); }
-
-    /* ===== Links card ===== */
-    .link-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      background: var(--bg2);
+      overflow: hidden;
       border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 14px 16px;
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.15s;
+      background: var(--bg2);
     }
+    .looker-wrap iframe { display: block; }
 
-    .link-card:hover { background: var(--bg3); }
+    /* Cards */
+    .cards-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .cards-4 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; }
+    .card-label { font-size: 11px; color: var(--sub); font-weight: 600; margin-bottom: 8px; display: flex; align-items: center; gap: 5px; }
+    .card-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .card-value { font-size: 28px; font-weight: 900; color: var(--text); line-height: 1; letter-spacing: -1px; }
+    .card-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
 
-    .link-card-left { display: flex; align-items: center; gap: 10px; }
-
-    .link-card-icon {
-      font-size: 20px;
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: var(--bg3);
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    .link-card-title {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .link-card-sub { font-size: 12px; color: var(--sub); }
-
-    .link-card-arrow { font-size: 16px; color: var(--muted); }
-
-    /* ===== Skeleton ===== */
-    .skel {
-      background: linear-gradient(90deg, var(--bg3) 25%, var(--border) 50%, var(--bg3) 75%);
-      background-size: 200% 100%;
-      animation: shimmer 1.4s infinite;
-      border-radius: 6px;
-      height: 28px;
-    }
-
+    /* Skel */
+    .skel { background: linear-gradient(90deg, var(--bg3) 25%, var(--border) 50%, var(--bg3) 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; border-radius: 6px; height: 28px; }
     @keyframes shimmer { to { background-position: -200% 0; } }
 
-    /* ===== Last updated ===== */
-    .last-updated {
-      text-align: center;
-      font-size: 11px;
-      color: var(--muted);
-      margin-top: 32px;
-      padding: 0 16px;
-    }
-
-    /* ===== Error ===== */
-    .err-text { color: var(--red); font-size: 13px; }
-
-    /* ===== Token input ===== */
-    .token-section { margin-top: 10px; }
-
-    .token-input-wrap {
-      display: flex;
-      gap: 8px;
-      margin-top: 8px;
-    }
-
-    .token-input {
-      flex: 1;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 12px;
-      color: var(--text);
-      font-size: 13px;
-      font-family: monospace;
-      outline: none;
-    }
-
+    /* Token setup */
+    .setup-card { background: rgba(255,224,51,0.05); border: 1px solid rgba(255,224,51,0.15); border-radius: var(--r); padding: 16px; }
+    .setup-title { font-size: 13px; font-weight: 700; color: var(--yellow); margin-bottom: 4px; }
+    .setup-text { font-size: 12px; color: var(--sub); line-height: 1.6; margin-bottom: 10px; }
+    .token-input-wrap { display: flex; gap: 8px; }
+    .token-input { flex: 1; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; color: var(--text); font-size: 13px; font-family: monospace; outline: none; }
     .token-input:focus { border-color: var(--yellow); }
+    .token-save { background: var(--yellow); color: #000; font-size: 12px; font-weight: 700; border: none; border-radius: 8px; padding: 8px 14px; cursor: pointer; font-family: var(--font); white-space: nowrap; }
 
-    .token-save {
-      background: var(--yellow);
-      color: #000;
-      font-size: 12px;
-      font-weight: 700;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 14px;
-      cursor: pointer;
-      font-family: var(--font);
-      white-space: nowrap;
-    }
+    /* Link card */
+    .link-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 14px 16px; text-decoration: none; color: inherit; transition: background 0.15s; margin-bottom: 8px; }
+    .link-card:hover { background: var(--bg3); }
+    .link-card:last-child { margin-bottom: 0; }
+    .link-card-left { display: flex; align-items: center; gap: 10px; }
+    .link-card-icon { font-size: 20px; width: 36px; height: 36px; border-radius: 8px; background: var(--bg3); display: flex; align-items: center; justify-content: center; }
+    .link-card-title { font-size: 14px; font-weight: 700; }
+    .link-card-sub { font-size: 12px; color: var(--sub); }
+    .link-card-arrow { font-size: 16px; color: var(--muted); }
 
-    /* ===== Manual input ===== */
-    .manual-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-    }
-
-    .manual-input {
-      width: 80px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 10px;
-      color: var(--text);
-      font-size: 18px;
-      font-weight: 700;
-      text-align: center;
-      font-family: var(--font);
-      outline: none;
-    }
-
+    /* BMC */
+    .bmc-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--r); padding: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .bmc-val { font-size: 36px; font-weight: 900; color: var(--yellow); margin: 4px 0; }
+    .bmc-sub { font-size: 11px; color: var(--muted); }
+    .manual-row { display: flex; gap: 8px; margin-top: 12px; }
+    .manual-input { width: 72px; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 6px 8px; color: var(--text); font-size: 16px; font-weight: 700; text-align: center; font-family: var(--font); outline: none; }
     .manual-input:focus { border-color: var(--yellow); }
-
-    .manual-label { font-size: 12px; color: var(--sub); }
-
-    .manual-save {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      color: var(--sub);
-      font-size: 12px;
-      font-weight: 700;
-      border-radius: 8px;
-      padding: 8px 12px;
-      cursor: pointer;
-      font-family: var(--font);
-      transition: 0.15s;
-    }
-
+    .manual-save { background: var(--bg3); border: 1px solid var(--border); color: var(--sub); font-size: 12px; font-weight: 700; border-radius: 8px; padding: 6px 12px; cursor: pointer; font-family: var(--font); transition: 0.15s; }
     .manual-save:hover { background: var(--border); color: var(--text); }
     .manual-save.saved { color: var(--green); border-color: var(--green); }
+
+    .err-text { color: var(--red); font-size: 13px; }
+    .last-updated { text-align: center; font-size: 11px; color: var(--muted); margin-top: 40px; }
   </style>
 </head>
 <body>
@@ -378,27 +157,59 @@
 
 <div class="wrap">
 
-  <!-- Portfolio Visitors -->
+  <!-- ===== ポートフォリオ訪問者 ===== -->
   <div class="section">
-    <p class="section-label">ポートフォリオサイト訪問者数</p>
-    <div class="cards-2">
-      <div class="card">
-        <div class="card-label"><span class="card-dot" style="background:#00FF88"></span>累計訪問者</div>
-        <div class="card-value" id="site-visitors"><div class="skel"></div></div>
-        <div class="card-sub">sarami29meat.github.io</div>
+    <p class="section-label">ポートフォリオサイト</p>
+    <div class="hero-card">
+      <div class="hero-eyebrow">累計訪問者数</div>
+      <div>
+        <span class="hero-num" id="site-visitors"><span class="skel" style="width:120px;height:60px;display:inline-block;"></span></span>
+        <span class="hero-unit">人</span>
       </div>
-      <div class="card">
-        <div class="card-label"><span class="card-dot" style="background:#60a5fa"></span>次のキリ番</div>
-        <div class="card-value" id="site-next-kiriban"><div class="skel"></div></div>
-        <div class="card-sub">あと <span id="site-kiriban-left">—</span> 人</div>
+      <div class="hero-sub">sarami29meat.github.io</div>
+      <div class="hero-grid">
+        <div>
+          <div class="hero-stat-label">次のキリ番</div>
+          <div class="hero-stat-val" id="site-next-kiriban">—</div>
+          <div class="hero-stat-sub">あと <span id="site-kiriban-left">—</span> 人</div>
+        </div>
+        <div>
+          <div class="hero-stat-label">直近のキリ番</div>
+          <div class="hero-stat-val" id="site-prev-kiriban">—</div>
+          <div class="hero-stat-sub">達成済み</div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- GitHub -->
+  <!-- ===== Looker Studio（GA4詳細） ===== -->
+  <div class="section">
+    <p class="section-label">訪問者の詳細分析（Google Analytics）</p>
+    <div class="looker-wrap">
+      <iframe
+        width="100%" height="580"
+        src="https://datastudio.google.com/embed/reporting/9a441dda-20dd-4638-9c0d-2dd628c31d3b/page/vRkxF"
+        frameborder="0" style="border:0;"
+        allowfullscreen
+        sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox">
+      </iframe>
+    </div>
+    <a class="link-card" href="https://analytics.google.com" target="_blank" style="margin-top:8px;">
+      <div class="link-card-left">
+        <div class="link-card-icon">📊</div>
+        <div>
+          <div class="link-card-title">Google Analytics で詳細を見る</div>
+          <div class="link-card-sub">流入元・デバイス・国・年齢など</div>
+        </div>
+      </div>
+      <span class="link-card-arrow">→</span>
+    </a>
+  </div>
+
+  <!-- ===== GitHub — Twitter AI Filter ===== -->
   <div class="section">
     <p class="section-label">GitHub — Twitter AI Filter</p>
-    <div class="cards-2">
+    <div class="cards-4">
       <div class="card">
         <div class="card-label"><span class="card-dot" style="background:#FFE033"></span>Stars</div>
         <div class="card-value" id="gh-stars"><div class="skel"></div></div>
@@ -422,106 +233,76 @@
     </div>
   </div>
 
-  <!-- GitHub Traffic (token required) -->
+  <!-- ===== GitHub トラフィック ===== -->
   <div class="section">
-    <p class="section-label">GitHub トラフィック（要トークン）</p>
-    <div class="cards-2" id="traffic-cards" style="display:none;">
+    <p class="section-label">GitHub トラフィック（過去14日）</p>
+    <div class="cards-4" id="traffic-cards" style="display:none;">
       <div class="card">
         <div class="card-label"><span class="card-dot" style="background:#22c55e"></span>閲覧数</div>
         <div class="card-value" id="gh-views">—</div>
-        <div class="card-sub">過去14日</div>
+        <div class="card-sub">PV</div>
       </div>
       <div class="card">
-        <div class="card-label"><span class="card-dot" style="background:#f87171"></span>ユニーク</div>
+        <div class="card-label"><span class="card-dot" style="background:#f87171"></span>ユニーク訪問者</div>
         <div class="card-value" id="gh-unique">—</div>
-        <div class="card-sub">ユニーク訪問者</div>
+        <div class="card-sub">UU</div>
       </div>
       <div class="card">
         <div class="card-label"><span class="card-dot" style="background:#fb923c"></span>クローン</div>
         <div class="card-value" id="gh-clones">—</div>
-        <div class="card-sub">過去14日</div>
+        <div class="card-sub">累計</div>
       </div>
       <div class="card">
-        <div class="card-label"><span class="card-dot" style="background:#34d399"></span>ユニーク</div>
+        <div class="card-label"><span class="card-dot" style="background:#34d399"></span>ユニークDL</div>
         <div class="card-value" id="gh-clones-unique">—</div>
-        <div class="card-sub">ユニークDL者</div>
+        <div class="card-sub">ユニーク</div>
       </div>
     </div>
     <div class="setup-card" id="token-setup">
-      <span class="setup-icon">🔑</span>
+      <div class="setup-title">🔑 GitHubトークンを入力してください</div>
+      <div class="setup-text">GitHub → Settings → Developer settings → Personal access tokens (classic) で <code style="color:var(--yellow)">repo</code> スコープのトークンを作成して入力。</div>
+      <div class="token-input-wrap">
+        <input class="token-input" id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxx">
+        <button class="token-save" id="gh-token-save">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== サポート ===== -->
+  <div class="section">
+    <p class="section-label">サポート</p>
+    <div class="bmc-card">
       <div>
-        <div class="setup-title">GitHubトークンが必要です</div>
-        <div class="setup-text">
-          リポジトリのトラフィックデータを取得するにはPersonal Access Tokenが必要です。<br>
-          GitHub → Settings → Developer settings → Personal access tokens → Fine-grained tokens で作成し、<code style="color:var(--yellow)">repo</code> スコープを付与してください。
-        </div>
-        <div class="token-section">
-          <div class="token-input-wrap">
-            <input class="token-input" id="gh-token-input" type="password" placeholder="ghp_xxxxxxxxxxxx">
-            <button class="token-save" id="gh-token-save">保存</button>
-          </div>
+        <div class="card-label"><span class="card-dot" style="background:#FFE033"></span>Buy Me a Coffee サポーター数</div>
+        <div class="bmc-val" id="bmc-count">—</div>
+        <div class="bmc-sub">累計（手動更新）</div>
+        <div class="manual-row">
+          <input class="manual-input" id="bmc-input" type="number" min="0" placeholder="0">
+          <button class="manual-save" id="bmc-save">保存</button>
         </div>
       </div>
+      <div style="font-size:40px;">☕</div>
     </div>
-  </div>
-
-  <!-- Donations (manual) -->
-  <div class="section">
-    <p class="section-label">寄付 / サポート</p>
-    <div class="card">
-      <div class="card-wide">
-        <div class="card-wide-left">
-          <div class="card-label"><span class="card-dot" style="background:#FFE033"></span>Buy Me a Coffee サポーター数</div>
-          <div class="card-value" id="bmc-count">—</div>
-          <div class="card-sub">累計（手動更新）</div>
-          <div class="manual-row">
-            <input class="manual-input" id="bmc-input" type="number" min="0" placeholder="0">
-            <button class="manual-save" id="bmc-save">保存</button>
-          </div>
+    <a class="link-card" href="https://www.buymeacoffee.com/sarami2929" target="_blank" style="margin-top:8px;">
+      <div class="link-card-left">
+        <div class="link-card-icon">☕</div>
+        <div>
+          <div class="link-card-title">Buy Me a Coffee</div>
+          <div class="link-card-sub">サポーター・収益を確認</div>
         </div>
-        <div class="card-wide-icon">☕</div>
       </div>
-    </div>
-  </div>
-
-  <!-- Analytics links -->
-  <div class="section">
-    <p class="section-label">詳細アナリティクス</p>
-    <div style="border-radius:14px;overflow:hidden;border:1px solid var(--border);margin-bottom:10px;">
-      <iframe width="100%" height="500" src="https://datastudio.google.com/embed/reporting/9a441dda-20dd-4638-9c0d-2dd628c31d3b/page/vRkxF" frameborder="0" style="border:0;display:block;" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
-    </div>
-    <div class="cards-1">
-      <a class="link-card" href="https://analytics.google.com" target="_blank">
-        <div class="link-card-left">
-          <div class="link-card-icon">📊</div>
-          <div>
-            <div class="link-card-title">Google Analytics</div>
-            <div class="link-card-sub">詳細データを見る</div>
-          </div>
+      <span class="link-card-arrow">→</span>
+    </a>
+    <a class="link-card" href="https://github.com/sarami29meat/twitter-ai-filter/graphs/traffic" target="_blank">
+      <div class="link-card-left">
+        <div class="link-card-icon" style="font-size:16px;">🐙</div>
+        <div>
+          <div class="link-card-title">GitHub Traffic</div>
+          <div class="link-card-sub">リポジトリのトラフィック詳細</div>
         </div>
-        <span class="link-card-arrow">→</span>
-      </a>
-      <a class="link-card" href="https://www.buymeacoffee.com/sarami2929" target="_blank">
-        <div class="link-card-left">
-          <div class="link-card-icon">☕</div>
-          <div>
-            <div class="link-card-title">Buy Me a Coffee</div>
-            <div class="link-card-sub">サポーター・収益</div>
-          </div>
-        </div>
-        <span class="link-card-arrow">→</span>
-      </a>
-      <a class="link-card" href="https://github.com/sarami29meat/twitter-ai-filter/graphs/traffic" target="_blank">
-        <div class="link-card-left">
-          <div class="link-card-icon" style="font-size:16px;">🐙</div>
-          <div>
-            <div class="link-card-title">GitHub Traffic</div>
-            <div class="link-card-sub">閲覧数・クローン数</div>
-          </div>
-        </div>
-        <span class="link-card-arrow">→</span>
-      </a>
-    </div>
+      </div>
+      <span class="link-card-arrow">→</span>
+    </a>
   </div>
 
 </div>
@@ -532,21 +313,16 @@
 const REPO = 'sarami29meat/twitter-ai-filter';
 const TOKEN_KEY = 'sarami_gh_token';
 const BMC_KEY   = 'sarami_bmc_count';
-const GA_KEY    = 'sarami_ga_set';
+const KIRIBAN_LIST = [10, 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000];
 
-// ===== Helpers =====
 function fmt(n) {
   if (n === null || n === undefined) return '—';
   return Number(n).toLocaleString('ja-JP');
 }
-
 function setVal(id, val) {
   const el = document.getElementById(id);
   if (el) el.textContent = fmt(val);
 }
-
-// ===== Portfolio visitor count =====
-const KIRIBAN_LIST = [10, 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 20000, 50000, 100000];
 
 async function loadSiteVisitors() {
   try {
@@ -554,17 +330,17 @@ async function loadSiteVisitors() {
     if (!res.ok) throw new Error(res.status);
     const d = await res.json();
     const count = d.count ?? d.value ?? 0;
-    setVal('site-visitors', count);
-    const next = KIRIBAN_LIST.find(n => n > count) ?? '—';
-    document.getElementById('site-next-kiriban').textContent = next === '—' ? '—' : next.toLocaleString('ja-JP');
-    document.getElementById('site-kiriban-left').textContent = next === '—' ? '—' : (next - count).toLocaleString('ja-JP');
+    document.getElementById('site-visitors').textContent = count.toLocaleString('ja-JP');
+    const next = KIRIBAN_LIST.find(n => n > count);
+    const prev = [...KIRIBAN_LIST].reverse().find(n => n <= count);
+    document.getElementById('site-next-kiriban').textContent = next ? next.toLocaleString('ja-JP') : '—';
+    document.getElementById('site-kiriban-left').textContent = next ? (next - count).toLocaleString('ja-JP') : '—';
+    document.getElementById('site-prev-kiriban').textContent = prev ? prev.toLocaleString('ja-JP') : '—';
   } catch(e) {
     document.getElementById('site-visitors').innerHTML = '<span class="err-text">取得失敗</span>';
-    document.getElementById('site-next-kiriban').innerHTML = '—';
   }
 }
 
-// ===== GitHub public stats =====
 async function loadGitHub() {
   try {
     const res = await fetch(`https://api.github.com/repos/${REPO}`);
@@ -582,7 +358,6 @@ async function loadGitHub() {
   }
 }
 
-// ===== GitHub traffic (token required) =====
 async function loadTraffic(token) {
   const headers = { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' };
   try {
@@ -597,11 +372,10 @@ async function loadTraffic(token) {
     document.getElementById('traffic-cards').style.display = 'grid';
     document.getElementById('token-setup').style.display = 'none';
   } catch(e) {
-    alert('トークンが正しくないか、権限が不足しています。');
+    console.error('Traffic load failed', e);
   }
 }
 
-// ===== Token save =====
 document.getElementById('gh-token-save').addEventListener('click', () => {
   const val = document.getElementById('gh-token-input').value.trim();
   if (!val) return;
@@ -609,7 +383,6 @@ document.getElementById('gh-token-save').addEventListener('click', () => {
   loadTraffic(val);
 });
 
-// ===== BMC count =====
 function loadBMC() {
   const saved = localStorage.getItem(BMC_KEY) || '0';
   document.getElementById('bmc-count').textContent = fmt(parseInt(saved));
@@ -626,24 +399,19 @@ document.getElementById('bmc-save').addEventListener('click', () => {
   setTimeout(() => { btn.textContent = '保存'; btn.classList.remove('saved'); }, 1500);
 });
 
-function checkGA() {}
-
-// ===== Refresh =====
 async function loadAll() {
   const btn = document.getElementById('refresh-btn');
   btn.classList.add('spinning');
   await Promise.all([loadSiteVisitors(), loadGitHub()]);
   const token = localStorage.getItem(TOKEN_KEY);
-  if (token) loadTraffic(token);
+  if (token) await loadTraffic(token);
   loadBMC();
-  checkGA();
   btn.classList.remove('spinning');
   document.getElementById('last-updated').textContent =
     '最終更新: ' + new Date().toLocaleString('ja-JP', { month:'numeric', day:'numeric', hour:'2-digit', minute:'2-digit' });
 }
 
 document.getElementById('refresh-btn').addEventListener('click', loadAll);
-
 loadAll();
 </script>
 </body>
