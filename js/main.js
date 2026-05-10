@@ -196,6 +196,16 @@ if (form) {
 // ===== Init =====
 applyLang();
 
+// ===== 管理者モード設定 =====
+(function checkAdminParam() {
+  const params = new URLSearchParams(location.search);
+  if (params.get('sarami_secret') === 'owner2929') {
+    localStorage.setItem('sarami_admin', '1');
+    // パラメータを消してリダイレクト
+    history.replaceState(null, '', location.pathname);
+  }
+})();
+
 // ===== 訪問者カウンター & キリ番 =====
 (async function initCounter() {
   const el = document.getElementById('visitor-count');
