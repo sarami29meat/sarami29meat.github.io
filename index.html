@@ -7,7 +7,7 @@
   <meta name="description" content="気になったら作る。個人開発ツール配布サイト。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=8">
+  <link rel="stylesheet" href="css/style.css?v=9">
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRNSLRMSQV"></script>
   <script>
@@ -40,23 +40,15 @@
 
       <!-- スロットカウンター -->
       <div class="counter-stage">
-        <span class="kira kira1" aria-hidden="true">✦</span>
-        <span class="kira kira2" aria-hidden="true">★</span>
-        <span class="kira kira3" aria-hidden="true">✦</span>
-        <span class="kira kira4" aria-hidden="true">☆</span>
-        <span class="kira kira5" aria-hidden="true">✦</span>
-        <span class="kira kira6" aria-hidden="true">★</span>
-        <span class="kira kira7" aria-hidden="true">✦</span>
-        <span class="kira kira8" aria-hidden="true">☆</span>
-        <span class="kira kira9" aria-hidden="true">✦</span>
-        <span class="kira kira10" aria-hidden="true">★</span>
-        <p class="counter-eyebrow"><span class="counter-dot"></span> ✨ VISITOR ✨</p>
+        <marquee class="kira-marquee" scrollamount="4">★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆</marquee>
+        <p class="counter-eyebrow">＼ VISITOR ／</p>
         <div class="digit-display" id="digit-display">
           <div class="digit-box"><div class="digit-reel"><span>9</span></div></div>
           <div class="digit-box"><div class="digit-reel"><span>9</span></div></div>
           <div class="digit-box"><div class="digit-reel"><span>9</span></div></div>
         </div>
         <p class="counter-label">人目の訪問者☆彡</p>
+        <marquee class="kira-marquee" scrollamount="4" direction="right">☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★</marquee>
       </div>
 
       <div class="hero-sep"></div>
@@ -135,6 +127,6 @@
 
 <script src="data/tools.js?v=2"></script>
 <script src="data/posts.js?v=2"></script>
-<script src="js/main.js?v=11"></script>
+<script src="js/main.js?v=12"></script>
 </body>
 </html>
