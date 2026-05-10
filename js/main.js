@@ -264,7 +264,7 @@ applyLang();
     if (shouldCount) localStorage.setItem('sarami_last_visit', String(now));
     const data = await res.json();
     const count = data.value;
-    el.textContent = count.toLocaleString('ja-JP');
+    animateSlotCounter(count);
 
     // キリ番チェック
     const idx = KIRIBAN.indexOf(count);
@@ -283,6 +283,56 @@ applyLang();
       document.getElementById('kiriban-close').onclick = () => overlay.style.display = 'none';
     }
   } catch {
-    el.textContent = '…';
+    const display = document.getElementById('digit-display');
+    if (display) display.innerHTML = '<span style="color:var(--muted);font-size:13px">…</span>';
   }
 })();
+
+function animateSlotCounter(count) {
+  const display = document.getElementById('digit-display');
+  if (!display) return;
+  display.innerHTML = '';
+
+  const digits = String(count).split('');
+  const H = 44; // digit-box height px
+
+  digits.forEach((digit, i) => {
+    // カンマ区切り
+    if (i > 0 && (digits.length - i) % 3 === 0) {
+      const sep = document.createElement('span');
+      sep.className = 'digit-sep';
+      sep.textContent = ',';
+      display.appendChild(sep);
+    }
+
+    const box = document.createElement('div');
+    box.className = 'digit-box';
+    const reel = document.createElement('div');
+    reel.className = 'digit-reel';
+
+    const target = parseInt(digit);
+    // 3周 + ターゲットまで
+    const cycles = 3;
+    const items = [];
+    for (let c = 0; c < cycles; c++) {
+      for (let n = 0; n <= 9; n++) items.push(n);
+    }
+    for (let n = 0; n <= target; n++) items.push(n);
+
+    items.forEach(n => {
+      const span = document.createElement('span');
+      span.textContent = n;
+      reel.appendChild(span);
+    });
+
+    box.appendChild(reel);
+    display.appendChild(box);
+
+    // 桁ごとに少しずらして回転開始
+    const totalOffset = (items.length - 1) * H;
+    setTimeout(() => {
+      reel.style.transition = `transform ${0.55 + i * 0.06}s cubic-bezier(0.15, 0.85, 0.35, 1)`;
+      reel.style.transform = `translateY(-${totalOffset}px)`;
+    }, 80 + i * 60);
+  });
+}
