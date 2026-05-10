@@ -12,7 +12,7 @@
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="../index.html">sarami<span class="dot"></span></a>
+    <a class="nav-logo" href="../index.html">sarami <span class="nav-logo-dot"></span></a>
     <ul class="nav-links">
       <li><a href="../index.html">ホーム</a></li>
       <li><a href="index.html" class="active">ブログ</a></li>
@@ -25,16 +25,14 @@
 <main>
   <div class="wrap">
     <div class="post-hd">
-      <div class="post-hd-tag">開発</div>
+      <span class="post-hd-tag">開発</span>
       <h1>Twitter AI Filterを作った話</h1>
       <p class="post-hd-meta">2026年5月10日</p>
     </div>
 
     <article class="post-body">
       <p>
-        Twitterのリプライ欄を見てたら、なんか変なのが増えてきた。
-        「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。どう見てもAIが量産してる。
-        気になって仕方なかったので、自分でフィルターを作ることにした。
+        Twitterのリプライ欄を見てたら、なんか変なのが増えてきた。「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。どう見てもAIが量産してる。気になって仕方なかったので、自分でフィルターを作ることにした。
       </p>
 
       <h2>どうやって判定するか</h2>
@@ -43,26 +41,20 @@
         <li><strong>テキストスコア</strong>：AI特有のフレーズを日英両方でリスト化してパターンマッチング</li>
         <li><strong>アカウントスコア</strong>：作成日・フォロワー数・投稿数・デフォルトアイコンなどのシグナル</li>
       </ul>
-      <p>
-        2つを重み付けして合算し、閾値を超えたら折りたたむ。デフォルトは35点。ポップアップからいつでも調整できる。
-      </p>
+      <p>2つを重み付けして合算し、閾値を超えたら折りたたむ。デフォルトは35点。ポップアップからいつでも調整できる。</p>
 
       <h2>一番詰まったところ</h2>
       <p>
-        Chrome拡張はページとは独立した環境で動くので、Twitterがブラウザに送ってくるデータに直接触れない。
-        そこでページと同じ環境で動く別スクリプトを用意して、取得したデータをイベント経由で渡す構成にした。
-        地味に面倒だったけど、これで動くようになった。
+        Chrome拡張はページとは独立した環境で動くので、Twitterがブラウザに送ってくるデータに直接触れない。そこでページと同じ環境で動く別スクリプトを用意して、取得したデータをイベント経由で渡す構成にした。地味に面倒だったけど、これで動くようになった。
       </p>
 
       <h2>とりあえず公開した</h2>
-      <p>
-        GitHubで無料公開してます。役に立ったらコーヒー投げてもらえると次への燃料になります。
-      </p>
+      <p>GitHubで公開してます。使ってみて何か気づいたらフィードバックください。</p>
 
-      <p style="margin-top:28px;display:flex;gap:16px;">
+      <div class="post-foot-links">
         <a href="../contact.html">☕ サポートする</a>
-        <a href="index.html">← ブログ一覧</a>
-      </p>
+        <a href="index.html">← 一覧に戻る</a>
+      </div>
     </article>
   </div>
 </main>
