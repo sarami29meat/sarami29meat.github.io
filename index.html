@@ -6,18 +6,18 @@
   <title>sarami — 個人開発</title>
   <meta name="description" content="あったらいいのにを放置できなくて作ってます。">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">sarami<em>_</em></a>
+    <a class="nav-logo" href="index.html">sarami<span class="dot"></span></a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">home</a></li>
-      <li><a href="blog/index.html">blog</a></li>
-      <li><a href="contact.html">contact</a></li>
+      <li><a href="index.html" class="active">ホーム</a></li>
+      <li><a href="blog/index.html">ブログ</a></li>
+      <li><a href="contact.html">お問い合わせ</a></li>
     </ul>
     <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
@@ -26,40 +26,36 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <p class="hero-kicker"><span></span>indie developer</p>
-      <h1>なければ、<br><span class="dim">つくればいい。</span></h1>
+      <div class="hero-tag">個人開発者</div>
+      <h1>なければ、<br><em>つくればいい。</em></h1>
       <p class="hero-body">
-        「こんなツールあったらな」をそのまま放置できない。<br>
-        気づいたら作って、そのまま公開してます。
+        「あったらいいのに」をそのまま放置できない性格で、気づいたら作ってます。<br>
+        全部無料で使えます。役に立ったら嬉しいです。
       </p>
-      <div class="hero-links">
-        <a href="#tools" class="link-main">ツールを見る →</a>
-        <a href="https://github.com/sarami29meat" target="_blank" class="link-sub">GitHub</a>
+      <div class="hero-actions">
+        <a href="#tools" class="btn-yellow">ツールを見る →</a>
+        <a href="https://github.com/sarami29meat" target="_blank" class="btn-ghost">GitHub</a>
       </div>
     </div>
   </section>
 
-  <hr class="divider">
-
-  <section class="sec">
+  <section class="sec" id="tools">
     <div class="wrap">
       <div class="sec-head">
-        <p class="sec-label">// tools</p>
-        <h2 class="sec-title">公開中のもの</h2>
+        <p class="sec-label">Tools</p>
+        <h2 class="sec-title">公開中のツール</h2>
       </div>
       <div class="tools-grid" id="tools-grid"></div>
     </div>
   </section>
 
-  <hr class="divider">
-
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <p class="sec-label">// blog</p>
-        <h2 class="sec-title">最近書いたこと</h2>
+        <p class="sec-label">Blog</p>
+        <h2 class="sec-title">最近の記事</h2>
       </div>
-      <div class="posts" id="recent-posts"></div>
+      <div class="posts-list" id="recent-posts"></div>
       <a href="blog/index.html" class="more-link">全部見る →</a>
     </div>
   </section>
@@ -71,7 +67,7 @@
       <span class="foot-copy">© 2026 sarami</span>
       <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="contact.html">contact</a>
+        <a href="contact.html">お問い合わせ</a>
       </div>
     </div>
   </div>

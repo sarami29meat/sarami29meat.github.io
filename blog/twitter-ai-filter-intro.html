@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Twitter AI Filterを作った話 — sarami</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="../index.html">sarami<em>_</em></a>
+    <a class="nav-logo" href="../index.html">sarami<span class="dot"></span></a>
     <ul class="nav-links">
-      <li><a href="../index.html">home</a></li>
-      <li><a href="index.html" class="active">blog</a></li>
-      <li><a href="../contact.html">contact</a></li>
+      <li><a href="../index.html">ホーム</a></li>
+      <li><a href="index.html" class="active">ブログ</a></li>
+      <li><a href="../contact.html">お問い合わせ</a></li>
     </ul>
     <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
@@ -25,20 +25,20 @@
 <main>
   <div class="wrap">
     <div class="post-hd">
-      <p class="post-hd-label">開発</p>
+      <div class="post-hd-tag">開発</div>
       <h1>Twitter AI Filterを作った話</h1>
-      <p class="post-hd-meta">2026.05.10</p>
+      <p class="post-hd-meta">2026年5月10日</p>
     </div>
 
     <article class="post-body">
       <p>
-        Twitterのリプライ欄を見てたら、なんか変なの増えてきた。
-        「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。
-        どう見てもAIが量産してる。気になって仕方なかったので、自分でフィルターを作ることにした。
+        Twitterのリプライ欄を見てたら、なんか変なのが増えてきた。
+        「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。どう見てもAIが量産してる。
+        気になって仕方なかったので、自分でフィルターを作ることにした。
       </p>
 
       <h2>どうやって判定するか</h2>
-      <p>2つのスコアを組み合わせている。</p>
+      <p>大きく2つのスコアを組み合わせている。</p>
       <ul>
         <li><strong>テキストスコア</strong>：AI特有のフレーズを日英両方でリスト化してパターンマッチング</li>
         <li><strong>アカウントスコア</strong>：作成日・フォロワー数・投稿数・デフォルトアイコンなどのシグナル</li>
@@ -54,13 +54,14 @@
         地味に面倒だったけど、これで動くようになった。
       </p>
 
-      <h2>とりあえず公開</h2>
+      <h2>とりあえず公開した</h2>
       <p>
         GitHubで無料公開してます。役に立ったらコーヒー投げてもらえると次への燃料になります。
       </p>
 
-      <p style="margin-top:36px;">
-        <a href="../contact.html">☕ support</a>　·　<a href="index.html">← blog</a>
+      <p style="margin-top:28px;display:flex;gap:16px;">
+        <a href="../contact.html">☕ サポートする</a>
+        <a href="index.html">← ブログ一覧</a>
       </p>
     </article>
   </div>
@@ -72,7 +73,7 @@
       <span class="foot-copy">© 2026 sarami</span>
       <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="../contact.html">contact</a>
+        <a href="../contact.html">お問い合わせ</a>
       </div>
     </div>
   </div>

@@ -7,24 +7,24 @@ if (burger && navLinks) {
 
 function formatDate(str) {
   const d = new Date(str);
-  return d.toLocaleDateString('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\//g, '.');
+  return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`;
 }
 
-// tools grid (index)
+// tools grid
 function renderTools() {
   const el = document.getElementById('tools-grid');
   if (!el || typeof TOOLS === 'undefined') return;
   el.innerHTML = TOOLS.map(t => `
     <div class="tool-card">
       <div class="tool-top">
-        <span class="tool-icon-wrap">${t.icon}</span>
-        <span class="tool-status">● live</span>
+        <span class="tool-icon">${t.icon}</span>
+        <span class="tool-live">公開中</span>
       </div>
       <div class="tool-name">${t.name}</div>
       <div class="tool-desc">${t.desc}</div>
       <div class="tool-foot">
-        ${t.github ? `<a class="tool-a" href="${t.github}" target="_blank">GitHub</a>` : ''}
-        ${t.download && t.download !== '#' ? `<a class="tool-a" href="${t.download}" target="_blank">Download</a>` : ''}
+        ${t.github ? `<a class="tool-link" href="${t.github}" target="_blank">GitHub</a>` : ''}
+        ${t.download && t.download !== '#' ? `<a class="tool-link" href="${t.download}" target="_blank">ダウンロード</a>` : ''}
       </div>
     </div>
   `).join('');
@@ -47,13 +47,11 @@ function renderBlogList() {
   const el = document.getElementById('blog-grid');
   if (!el || typeof POSTS === 'undefined') return;
   el.innerHTML = POSTS.map(p => `
-    <div class="blog-row">
-      <div class="blog-row-date">${formatDate(p.date)}</div>
-      <div>
-        <div class="blog-row-tag">${p.tag}</div>
-        <div class="blog-row-title"><a href="../${p.file}">${p.title}</a></div>
-        <div class="blog-row-excerpt">${p.excerpt}</div>
-      </div>
+    <div class="blog-card">
+      <span class="blog-card-tag">${p.tag}</span>
+      <div class="blog-card-title"><a href="../${p.file}">${p.title}</a></div>
+      <div class="blog-card-excerpt">${p.excerpt}</div>
+      <div class="blog-card-date">${formatDate(p.date)}</div>
     </div>
   `).join('');
 }

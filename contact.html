@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>contact — sarami</title>
+  <title>お問い合わせ — sarami</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <a class="nav-logo" href="index.html">sarami<em>_</em></a>
+    <a class="nav-logo" href="index.html">sarami<span class="dot"></span></a>
     <ul class="nav-links">
-      <li><a href="index.html">home</a></li>
-      <li><a href="blog/index.html">blog</a></li>
-      <li><a href="contact.html" class="active">contact</a></li>
+      <li><a href="index.html">ホーム</a></li>
+      <li><a href="blog/index.html">ブログ</a></li>
+      <li><a href="contact.html" class="active">お問い合わせ</a></li>
     </ul>
     <div class="nav-burger"><span></span><span></span><span></span></div>
   </div>
@@ -24,31 +24,32 @@
 
 <main>
   <div class="wrap">
-    <div class="post-hd">
-      <p class="post-hd-label">// contact</p>
-      <h1>連絡とサポート</h1>
-      <p style="color:var(--muted);font-size:14px;margin-top:10px;">バグ報告・要望・感想、なんでも。</p>
+    <div class="page-hd">
+      <div class="page-hd-tag">Contact</div>
+      <h1>お問い合わせ</h1>
+      <p class="page-hd-sub">バグ報告・要望・感想、なんでもどうぞ。</p>
     </div>
 
-    <div class="contact-grid sec" style="padding-top:0;border-top:none;">
-
+    <div class="contact-grid">
       <div class="contact-box">
-        <p class="contact-box-title">メッセージ</p>
-        <p class="contact-box-sub">動かない・こんな機能ほしい・ただの感想、なんでも歓迎です。</p>
+        <p class="contact-box-title">📨 メッセージを送る</p>
+        <p class="contact-box-sub">
+          動かない・こんな機能ほしい・ただの感想、なんでも歓迎です。
+        </p>
         <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="field">
             <label>名前（任意）</label>
-            <input type="text" name="name" placeholder="your name">
+            <input type="text" name="name" placeholder="お名前">
           </div>
           <div class="field">
-            <label>メール *</label>
+            <label>メールアドレス ＊</label>
             <input type="email" name="email" required placeholder="you@example.com">
           </div>
           <div class="field">
-            <label>メッセージ *</label>
+            <label>メッセージ ＊</label>
             <textarea name="message" required placeholder="なんでも書いてください"></textarea>
           </div>
-          <button type="submit" class="btn-send">送信</button>
+          <button type="submit" class="btn-send">送信する</button>
         </form>
       </div>
 
@@ -56,14 +57,12 @@
         <div class="donate-icon">☕</div>
         <p class="donate-title">開発を支援する</p>
         <p class="donate-sub">
-          全部無料で使えます。<br>
-          それでも「役に立った」と思ったら、コーヒー1杯分だけ投げてもらえると次への燃料になります。
+          全部無料で使えます。それでも「役に立った」と思ったら、コーヒー1杯分だけ投げてもらえると次への燃料になります。
         </p>
         <a class="bmc-btn" href="https://www.buymeacoffee.com/sarami2929" target="_blank">
           ☕ Buy me a coffee
         </a>
       </div>
-
     </div>
   </div>
 </main>
@@ -74,7 +73,7 @@
       <span class="foot-copy">© 2026 sarami</span>
       <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="contact.html">contact</a>
+        <a href="contact.html">お問い合わせ</a>
       </div>
     </div>
   </div>
