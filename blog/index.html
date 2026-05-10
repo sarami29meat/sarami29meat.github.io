@@ -14,19 +14,22 @@
   <div class="nav-inner">
     <a class="nav-logo" href="../index.html">sarami <span class="nav-logo-dot"></span></a>
     <ul class="nav-links">
-      <li><a href="../index.html">ホーム</a></li>
-      <li><a href="index.html" class="active">ブログ</a></li>
-      <li><a href="../contact.html">お問い合わせ</a></li>
+      <li><a href="../index.html" data-i18n="nav-home">ホーム</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav-blog">ブログ</a></li>
+      <li><a href="../contact.html" data-i18n="nav-contact">お問い合わせ</a></li>
     </ul>
-    <div class="nav-burger"><span></span><span></span><span></span></div>
+    <div class="nav-right">
+      <button id="lang-toggle">EN</button>
+      <div class="nav-burger"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </nav>
 
 <main>
   <div class="wrap">
     <div class="page-hd">
-      <h1>ブログ</h1>
-      <p class="page-hd-sub">作ったものの裏話や、気づいたことなど。</p>
+      <h1 data-i18n="blog-page-title">ブログ</h1>
+      <p class="page-hd-sub" data-i18n="blog-page-sub">作ったものの裏話や、気づいたことなど。</p>
     </div>
     <div class="blog-list" id="blog-grid"></div>
   </div>
@@ -38,7 +41,7 @@
       <span class="foot-copy">© 2026 sarami</span>
       <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="../contact.html">お問い合わせ</a>
+        <a href="../contact.html" data-i18n="nav-contact">お問い合わせ</a>
       </div>
     </div>
   </div>

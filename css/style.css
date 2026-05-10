@@ -81,6 +81,32 @@ nav {
 .nav-links a:hover { background: var(--bg2); color: var(--text); }
 .nav-links a.active { background: var(--yellow); color: var(--text); }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#lang-toggle {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font);
+  color: var(--sub);
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  line-height: 1;
+}
+
+#lang-toggle:hover {
+  background: var(--yellow);
+  border-color: var(--yellowh);
+  color: var(--text);
+}
+
 .nav-burger {
   display: none;
   flex-direction: column;

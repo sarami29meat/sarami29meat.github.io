@@ -14,27 +14,36 @@
   <div class="nav-inner">
     <a class="nav-logo" href="../index.html">sarami <span class="nav-logo-dot"></span></a>
     <ul class="nav-links">
-      <li><a href="../index.html">ホーム</a></li>
-      <li><a href="index.html" class="active">ブログ</a></li>
-      <li><a href="../contact.html">お問い合わせ</a></li>
+      <li><a href="../index.html" data-i18n="nav-home">ホーム</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav-blog">ブログ</a></li>
+      <li><a href="../contact.html" data-i18n="nav-contact">お問い合わせ</a></li>
     </ul>
-    <div class="nav-burger"><span></span><span></span><span></span></div>
+    <div class="nav-right">
+      <button id="lang-toggle">EN</button>
+      <div class="nav-burger"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </nav>
 
 <main>
   <div class="wrap">
     <div class="post-hd">
-      <span class="post-hd-tag">開発</span>
-      <h1>Twitter AI Filterを作った話</h1>
-      <p class="post-hd-meta">2026年5月10日</p>
+      <span class="post-hd-tag" data-i18n="nav-blog">ブログ</span>
+      <!-- ja -->
+      <div class="post-lang ja-content">
+        <h1>Twitter AI Filterを作った話</h1>
+        <p class="post-hd-meta">2026年5月10日</p>
+      </div>
+      <!-- en -->
+      <div class="post-lang en-content" style="display:none;">
+        <h1>How I Built Twitter AI Filter</h1>
+        <p class="post-hd-meta">May 10, 2026</p>
+      </div>
     </div>
 
-    <article class="post-body">
-      <p>
-        Twitterのリプライ欄を見てたら、なんか変なのが増えてきた。「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。どう見てもAIが量産してる。気になって仕方なかったので、自分でフィルターを作ることにした。
-      </p>
-
+    <!-- Japanese -->
+    <article class="post-body post-lang ja-content">
+      <p>Twitterのリプライ欄を見てたら、なんか変なのが増えてきた。「素晴らしい投稿ですね！とても参考になりました」みたいなやつ。どう見てもAIが量産してる。気になって仕方なかったので、自分でフィルターを作ることにした。</p>
       <h2>どうやって判定するか</h2>
       <p>大きく2つのスコアを組み合わせている。</p>
       <ul>
@@ -42,18 +51,33 @@
         <li><strong>アカウントスコア</strong>：作成日・フォロワー数・投稿数・デフォルトアイコンなどのシグナル</li>
       </ul>
       <p>2つを重み付けして合算し、閾値を超えたら折りたたむ。デフォルトは35点。ポップアップからいつでも調整できる。</p>
-
       <h2>一番詰まったところ</h2>
-      <p>
-        Chrome拡張はページとは独立した環境で動くので、Twitterがブラウザに送ってくるデータに直接触れない。そこでページと同じ環境で動く別スクリプトを用意して、取得したデータをイベント経由で渡す構成にした。地味に面倒だったけど、これで動くようになった。
-      </p>
-
+      <p>Chrome拡張はページとは独立した環境で動くので、Twitterがブラウザに送ってくるデータに直接触れない。そこでページと同じ環境で動く別スクリプトを用意して、取得したデータをイベント経由で渡す構成にした。地味に面倒だったけど、これで動くようになった。</p>
       <h2>とりあえず公開した</h2>
       <p>GitHubで公開してます。使ってみて何か気づいたらフィードバックください。</p>
-
       <div class="post-foot-links">
         <a href="../contact.html">☕ サポートする</a>
         <a href="index.html">← 一覧に戻る</a>
+      </div>
+    </article>
+
+    <!-- English -->
+    <article class="post-body post-lang en-content" style="display:none;">
+      <p>I noticed something weird in Twitter's reply section — the kind of comments that scream "素晴らしい投稿ですね！" (Great post!) in that unmistakable AI way. It was clearly being mass-produced. It bothered me enough that I decided to build my own filter.</p>
+      <h2>How detection works</h2>
+      <p>Two scores combined:</p>
+      <ul>
+        <li><strong>Text score</strong>: pattern matching against a list of AI-typical phrases in both Japanese and English</li>
+        <li><strong>Account score</strong>: signals like account age, follower count, post count, default profile icon</li>
+      </ul>
+      <p>Both are weighted and summed. If the total exceeds a threshold (default: 35/100), the reply is folded. You can adjust the threshold anytime from the popup.</p>
+      <h2>The tricky part</h2>
+      <p>Chrome extensions run in an isolated environment, so they can't directly access data Twitter loads in the page. I worked around this by injecting a script that runs in the same environment as the page itself, then passes data across via custom events. A bit fiddly, but it works.</p>
+      <h2>It's out there</h2>
+      <p>It's on GitHub. Try it out and let me know what you think.</p>
+      <div class="post-foot-links">
+        <a href="../contact.html">☕ Support</a>
+        <a href="index.html">← Back to blog</a>
       </div>
     </article>
   </div>
@@ -65,12 +89,22 @@
       <span class="foot-copy">© 2026 sarami</span>
       <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="../contact.html">お問い合わせ</a>
+        <a href="../contact.html" data-i18n="nav-contact">お問い合わせ</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+  // ブログ記事の言語切り替え
+  function updatePostLang() {
+    const lang = localStorage.getItem('sarami_lang') || 'ja';
+    document.querySelectorAll('.ja-content').forEach(el => el.style.display = lang === 'ja' ? '' : 'none');
+    document.querySelectorAll('.en-content').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+  }
+  updatePostLang();
+  document.getElementById('lang-toggle').addEventListener('click', updatePostLang);
+</script>
 </body>
 </html>

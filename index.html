@@ -15,25 +15,25 @@
   <div class="nav-inner">
     <a class="nav-logo" href="index.html">sarami <span class="nav-logo-dot"></span></a>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">ホーム</a></li>
-      <li><a href="blog/index.html">ブログ</a></li>
-      <li><a href="contact.html">お問い合わせ</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav-home">ホーム</a></li>
+      <li><a href="blog/index.html" data-i18n="nav-blog">ブログ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">お問い合わせ</a></li>
     </ul>
-    <div class="nav-burger"><span></span><span></span><span></span></div>
+    <div class="nav-right">
+      <button id="lang-toggle">EN</button>
+      <div class="nav-burger"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </nav>
 
 <main>
   <section class="hero">
     <div class="wrap">
-      <p class="hero-eyebrow">個人開発</p>
-      <h1>気になったら、<br>つくる。</h1>
-      <p class="hero-body">
-        「こういうのあればな」と思ったものを作って公開してます。<br>
-        使ってみて何か思ったらフィードバックください。
-      </p>
+      <p class="hero-eyebrow" data-i18n="hero-eyebrow">個人開発</p>
+      <h1 data-i18n="hero-title">気になったら、<br>つくる。</h1>
+      <p class="hero-body" data-i18n="hero-body">「こういうのあればな」と思ったものを作って公開してます。<br>使ってみて何か思ったらフィードバックください。</p>
       <div class="hero-actions">
-        <a href="#tools" class="btn-primary">ツールを見る</a>
+        <a href="#tools" class="btn-primary" data-i18n="hero-btn-tools">ツールを見る</a>
         <a href="https://github.com/sarami29meat" target="_blank" class="btn-ghost">GitHub</a>
       </div>
     </div>
@@ -42,8 +42,8 @@
   <section class="sec" id="tools">
     <div class="wrap">
       <div class="sec-head">
-        <p class="sec-label">Tools</p>
-        <h2 class="sec-title">公開中のツール</h2>
+        <p class="sec-label" data-i18n="tools-label">Tools</p>
+        <h2 class="sec-title" data-i18n="tools-title">公開中のツール</h2>
       </div>
       <div class="tools-grid" id="tools-grid"></div>
     </div>
@@ -52,11 +52,11 @@
   <section class="sec">
     <div class="wrap">
       <div class="sec-head">
-        <p class="sec-label">Blog</p>
-        <h2 class="sec-title">最近の記事</h2>
+        <p class="sec-label" data-i18n="blog-label">Blog</p>
+        <h2 class="sec-title" data-i18n="blog-title">最近の記事</h2>
       </div>
       <div class="posts-list" id="recent-posts"></div>
-      <a href="blog/index.html" class="more-link">もっと見る →</a>
+      <a href="blog/index.html" class="more-link" data-i18n="more-link">もっと見る →</a>
     </div>
   </section>
 
@@ -64,12 +64,12 @@
     <div class="wrap">
       <div class="contact-cta">
         <div class="contact-cta-text">
-          <h2 class="contact-cta-title">バグ・要望・感想</h2>
-          <p class="contact-cta-sub">気になることがあれば気軽に送ってください。役に立ったならコーヒーも嬉しいです。</p>
+          <h2 class="contact-cta-title" data-i18n="cta-title">バグ・要望・感想</h2>
+          <p class="contact-cta-sub" data-i18n="cta-sub">気になることがあれば気軽に送ってください。役に立ったならコーヒーも嬉しいです。</p>
         </div>
         <div class="contact-cta-actions">
-          <a href="contact.html" class="btn-primary">お問い合わせ</a>
-          <a href="https://www.buymeacoffee.com/sarami2929" target="_blank" class="btn-ghost">☕ Buy me a coffee</a>
+          <a href="contact.html" class="btn-primary" data-i18n="cta-btn-contact">お問い合わせ</a>
+          <a href="https://www.buymeacoffee.com/sarami2929" target="_blank" class="btn-ghost" data-i18n="cta-btn-coffee">☕ Buy me a coffee</a>
         </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
       <span class="foot-copy">© 2026 sarami</span>
       <div class="foot-links">
         <a href="https://github.com/sarami29meat" target="_blank">GitHub</a>
-        <a href="contact.html">お問い合わせ</a>
+        <a href="contact.html" data-i18n="nav-contact">お問い合わせ</a>
       </div>
     </div>
   </div>

@@ -4,10 +4,8 @@ const TOOLS = [
     icon: '🤖',
     name: 'Twitter AI Filter',
     desc: 'Twitter/XのリプライからAI生成コメントを自動検出・非表示にするChrome拡張機能。',
-    badge: 'free',
-    badgeText: '無料',
+    descEn: 'A Chrome extension that automatically detects and hides AI-generated replies on Twitter/X.',
     github: 'https://github.com/sarami29meat/twitter-ai-filter',
-    download: '#',                    // ← Chrome Web Store URLに変更（未公開なら #）
+    download: '#',
   },
-  // 新しいツールはここに追加
 ];
