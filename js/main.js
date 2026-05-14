@@ -249,6 +249,9 @@ applyLang();
   };
 
   try {
+    if (new URLSearchParams(location.search).get('admin') === '1') {
+      localStorage.setItem('sarami_admin', '1');
+    }
     const isAdmin = localStorage.getItem('sarami_admin') === '1';
     const lastVisit = parseInt(localStorage.getItem('sarami_last_visit') || '0', 10);
     const now = Date.now();
